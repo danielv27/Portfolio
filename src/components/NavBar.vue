@@ -1,8 +1,8 @@
 <template>
-  <div class="sticky top-0 left-0 z-10 mt-5 py-4 w-screen flex justify-between bg-dark-blue">
+  <div class="sticky top-0 left-0 z-10 py-4 w-screen flex justify-between bg-dark-blue">
     <div class="flex ml-6">
       <a :href="logoHref">
-        <img class="w-20 object-contain" :src="logo" alt="Logo"/>
+        <img class="w-20 mt-1.5 object-contain" :src="logo" alt="Logo"/>
       </a>
 
     </div>
@@ -27,7 +27,7 @@
 
 <script setup lang="ts">
 import logo from '@assets/logo.png'
-import {computed, ref, watch} from "vue";
+import {ref, watch} from "vue";
 import {useWindowScroll} from "@vueuse/core";
 import {isInViewport} from "@utils/viewPort.ts";
 
@@ -44,19 +44,20 @@ function elementInViewPort(label: string){
   return isInViewport(el);
 }
 
+
 const navLabels = ['About', 'Experience', 'Education', 'Projects', 'Contact'];
 
 const navItems = ref(navLabels.map(label => ({
   label,
   href: '#' + label.toLowerCase(),
-  selected: false
+  selected: elementInViewPort(label),
 })));
 
 watch(y, () => navItems.value.forEach(navItem => {
     navItem.selected = elementInViewPort(navItem.label);
 }));
 
-const logoHref = '#intro'
+const logoHref = '#main'
 const resumeFileName = 'resume.pdf';
 
 </script>

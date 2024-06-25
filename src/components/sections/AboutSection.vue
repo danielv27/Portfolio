@@ -1,5 +1,5 @@
 <template>
-  <div class="flex items-center justify-center h-screen">
+  <div class="flex bg-green items-center justify-center h-screen">
     <div id="about" class="flex flex-col items-center justify-center w-full max-w-4xl px-4 text-left">
       <h1 class="w-full flex justify-center text-4xl mb-4">
         About Me
@@ -11,6 +11,8 @@
         I believe that the UX of a product is not less important than the functionality.
         This perspective led my main focus to be on the frontend, ensuring application components are modular, consistent,
         robust, and flexible.
+
+        Here are some technologies iv'e
       </section>
     </div>
   </div>

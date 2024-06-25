@@ -19,9 +19,11 @@ function addSmoothScrolling() {
       const targetId = link?.getAttribute('href')?.substring(1);
       const targetElement = document.getElementById(targetId ?? '');
 
+
+
       if (targetElement) {
         window.scrollTo({
-          top: targetElement.offsetTop - 100,
+          top: targetElement.parentElement!.offsetTop,
           behavior: 'smooth'
         });
       }
