@@ -1,7 +1,7 @@
 <template>
   <div class="sticky top-0 left-0 z-10 mt-5 py-4 w-screen flex justify-between bg-dark-blue">
     <div class="flex ml-6">
-      <a href="#intro">
+      <a :href="logoHref">
         <img class="w-20 object-contain" :src="logo" alt="Logo"/>
       </a>
 
@@ -9,10 +9,11 @@
     <div class="flex items-center gap-6 mr-14">
       <a
           v-for="item in navItems"
-          :key="navItemHref(item)"
+          :key="item.href"
           class="hover-underline-animation"
-          :href="navItemHref(item)">
-        {{ item }}
+          :class="{selected: item.selected}"
+          :href="item.href">
+        {{ item.label }}
       </a>
 
       <a :href="resumeFileName" target="_blank">
@@ -21,21 +22,41 @@
         </div>
       </a>
     </div>
-
-
   </div>
 </template>
 
 <script setup lang="ts">
 import logo from '@assets/logo.png'
+import {computed, ref, watch} from "vue";
+import {useWindowScroll} from "@vueuse/core";
+import {isInViewport} from "@utils/viewPort.ts";
 
 
-const navItems = ['About', 'Experience', 'Education', 'Projects', 'Contact'];
+// use https://vueuse.org/core/useWindowScroll/
 
-function navItemHref(item: string): string {
-  return '#' + item.toLowerCase();
+const { _ , y } = useWindowScroll();
+
+function elementInViewPort(label: string){
+  const el = document.getElementById(label.toLowerCase());
+  if(! el) {
+    return false;
+  }
+  return isInViewport(el);
 }
 
+const navLabels = ['About', 'Experience', 'Education', 'Projects', 'Contact'];
+
+const navItems = ref(navLabels.map(label => ({
+  label,
+  href: '#' + label.toLowerCase(),
+  selected: false
+})));
+
+watch(y, () => navItems.value.forEach(navItem => {
+    navItem.selected = elementInViewPort(navItem.label);
+}));
+
+const logoHref = '#intro'
 const resumeFileName = 'resume.pdf';
 
 </script>
@@ -43,9 +64,10 @@ const resumeFileName = 'resume.pdf';
 .hover-underline-animation {
   display: inline-block;
   position: relative;
-  padding-bottom: 2px; /* Add padding to prevent shifting */
+  padding-bottom: 2px;
 }
 
+.hover-underline-animation.selected,
 .hover-underline-animation:hover {
   color: #66FCF1;
 }
@@ -63,6 +85,7 @@ const resumeFileName = 'resume.pdf';
   transition: transform 0.25s ease-out;
 }
 
+.hover-underline-animation.selected::after,
 .hover-underline-animation:hover::after {
   transform: scaleX(1);
   transform-origin: bottom left;
