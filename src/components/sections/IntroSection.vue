@@ -1,8 +1,7 @@
 <template>
-  <div class="flex h-screen items-center justify-center">
+  <div class="flex gap-20 h-[calc(100vh-76px)] items-center justify-center">
+    <img :src="profilePicture" alt="profile" class="w-96 rounded-full border">
     <div class="text-left">
-
-      <!--      <h1>Hi, I'm Daniel. A Full-Stack Engineer</h1>-->
       <div class="flex">
         <AnimatedText
             class="text-3xl"
@@ -14,15 +13,14 @@
             class="text-3xl"
             text="A Full-Stack Engineer"
             :delay="1100"
-            :time-between="180"
+            :time-between="240"
         />
       </div>
-      <div ref="descriptionRef" class="w-128">Welcome to my portfolio! Here, you'll find examples of my work, skills,
+      <div ref="descriptionRef" class="text-white w-128">Welcome to my portfolio! Here, you'll find examples of my work, skills,
         and experience creating innovative software solutions. I'm committed to
         staying up-to-date with the latest technologies and trends in the field, and I
         invite you to explore my portfolio to see what I can offer as a developer.
       </div>
-
     </div>
   </div>
 </template>
@@ -30,6 +28,7 @@
 import AnimatedText from "@components/AnimatedText.vue";
 import {ref} from "vue";
 import {useMotion} from "@vueuse/motion";
+import profilePicture from "@assets/my-photo-grey-bg.jpeg"
 
 const descriptionRef = ref();
 

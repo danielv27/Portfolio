@@ -1,8 +1,8 @@
 <template>
-  <div class="absolute top-0 left-0 w-screen my-6 flex justify-between">
-    <div class="flex ml-4">
+  <div class="sticky top-0 left-0 z-10 mt-5 pt-4 w-screen flex justify-between">
+    <div class="flex ml-6">
       <a href="/">
-        <img class="w-28 mr-4 object-contain" :src="logo" alt="Logo"/>
+        <img class="w-20 object-contain" :src="logo" alt="Logo"/>
       </a>
 
     </div>
@@ -15,11 +15,11 @@
         {{ item }}
       </a>
 
-<!--      <a :href="resumeFileName">-->
-<!--        <div class="border-2 p-2 transition-colors ease-in duration-900 opacity-100 hover:text-white rounded">-->
-<!--          Resume-->
-<!--        </div>-->
-<!--      </a>-->
+      <a :href="resumeFileName">
+        <div class="border p-2 transition-colors ease-in duration-900 opacity-100 hover:text-light-blue rounded">
+          Resume
+        </div>
+      </a>
     </div>
 
 
@@ -30,7 +30,7 @@
 import logo from '@assets/logo.png'
 
 
-const navItems = ['About', 'Experience', 'Projects', 'Contact'];
+const navItems = ['About', 'Experience', 'Education', 'Projects', 'Contact'];
 
 function navItemHref(item: string): string {
   return '#' + item.toLowerCase();
@@ -47,7 +47,7 @@ const resumeFileName = 'resume.pdf';
 }
 
 .hover-underline-animation:hover {
-  color: white;
+  color: #66FCF1;
 }
 
 .hover-underline-animation::after {
@@ -57,7 +57,7 @@ const resumeFileName = 'resume.pdf';
   height: 1px;
   bottom: 0;
   left: 0;
-  background-color: white;
+  background-color: #66FCF1;
   transform: scaleX(0);
   transform-origin: bottom right;
   transition: transform 0.25s ease-out;
