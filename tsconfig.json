@@ -1,6 +1,7 @@
 {
+  "extends": "@vue/tsconfig/tsconfig.json",
   "compilerOptions": {
-    "types": ["node"],
+    "types": ["node"]
   },
   "files": [],
   "references": [

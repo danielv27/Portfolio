@@ -15,11 +15,11 @@
         {{ item }}
       </a>
 
-      <a :href="resumeFileName">
-        <div class="border-2 p-2 transition-colors ease-in duration-900 opacity-100 hover:text-white rounded">
-          Resume
-        </div>
-      </a>
+<!--      <a :href="resumeFileName">-->
+<!--        <div class="border-2 p-2 transition-colors ease-in duration-900 opacity-100 hover:text-white rounded">-->
+<!--          Resume-->
+<!--        </div>-->
+<!--      </a>-->
     </div>
 
 
