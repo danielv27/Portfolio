@@ -7,7 +7,7 @@
 <script setup lang="ts">
 import NavBar from "@components/NavBar.vue";
 import MainPage from "@components/MainPage.vue";
-import {nextTick, onMounted} from "vue";
+import {onMounted} from "vue";
 
 function addSmoothScrolling() {
   const links = document.querySelectorAll('a[href^="#"]');

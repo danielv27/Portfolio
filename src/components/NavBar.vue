@@ -1,7 +1,7 @@
 <template>
   <div class="sticky top-0 left-0 z-10 mt-5 py-4 w-screen flex justify-between bg-dark-blue">
     <div class="flex ml-6">
-      <a href="/">
+      <a href="#intro">
         <img class="w-20 object-contain" :src="logo" alt="Logo"/>
       </a>
 
@@ -15,7 +15,7 @@
         {{ item }}
       </a>
 
-      <a :href="resumeFileName">
+      <a :href="resumeFileName" target="_blank">
         <div class="border p-2 transition-colors ease-in duration-900 opacity-100 hover:text-light-blue rounded">
           Resume
         </div>
