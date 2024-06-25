@@ -1,8 +1,10 @@
 <template>
-<!--  <span ref="target">{{ text }}</span>-->
+  <div class="flex">
   <span
+      v-for="word in textArray"
       ref="wordArrayRef"
-      v-for="word in textArray">{{ word }}&nbsp;</span>
+  >{{ word }}&nbsp;</span>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -12,42 +14,37 @@ import {useMotion} from "@vueuse/motion";
 
 interface Props {
   text: string;
+  delay: number;
+  timeBetween: number
 }
 
-
-
-
-const props = defineProps<Props>()
+const props = withDefaults(defineProps<Props>(), {
+  text: '',
+  delay: 0,
+  timeBetween: 100
+})
 const textArray = computed(() => props.text.split(' '));
 
 const wordArrayRef = ref<HTMLSpanElement[]>();
-const target = ref();
-
-// const motionInstance = useMotion(wordArrayRef, {
-//   initial: {
-//     opacity: 0,
-//     y: 100
-//   },
-//   enter: {
-//     opacity: 1,
-//     y: 0
-//   }
-// })
 
 onMounted(() => console.log(wordArrayRef.value?.forEach((spanTag, index) => {
-const motionInstance = useMotion(spanTag, {
-  initial: {
-    opacity: 0,
-    y: 0
-  },
-  enter: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      delay: 100 + 100 * index
-    }
-  },
-})
+  useMotion(spanTag, {
+    initial: {
+      opacity: 0,
+      y: 100
+    },
+    visibleOnce: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: props.delay + props.timeBetween * (index + 1),
+        type: 'spring',
+        stiffness: 150,
+        damping: 25,
+        mass: 0.5,
+      }
+    },
+  })
 })))
 
 </script>
