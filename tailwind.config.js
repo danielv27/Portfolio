@@ -20,8 +20,8 @@ export default {
             'green': '#45A29E',
         },
         fontFamily: {
-            sans: ['Graphik', 'sans-serif'],
-            serif: ['Merriweather', 'serif'],
+            varela: ['Varela'],
+            mono: ['Source Code Pro', 'monospace'],
         },
         extend: {
             spacing: {

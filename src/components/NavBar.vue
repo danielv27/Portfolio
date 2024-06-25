@@ -1,5 +1,5 @@
 <template>
-  <div class="my-6 flex justify-between">
+  <div class="absolute top-0 left-0 w-screen my-6 flex justify-between">
     <div class="flex ml-4">
       <a href="/">
         <img class="w-28 mr-4 object-contain" :src="logo" alt="Logo"/>
@@ -43,6 +43,7 @@ const resumeFileName = 'resume.pdf';
 .hover-underline-animation {
   display: inline-block;
   position: relative;
+  padding-bottom: 2px; /* Add padding to prevent shifting */
 }
 
 .hover-underline-animation:hover {
@@ -53,11 +54,11 @@ const resumeFileName = 'resume.pdf';
   content: '';
   position: absolute;
   width: 100%;
-  transform: scaleX(0);
-  height: 2px;
+  height: 1px;
   bottom: 0;
   left: 0;
   background-color: white;
+  transform: scaleX(0);
   transform-origin: bottom right;
   transition: transform 0.25s ease-out;
 }
@@ -65,6 +66,6 @@ const resumeFileName = 'resume.pdf';
 .hover-underline-animation:hover::after {
   transform: scaleX(1);
   transform-origin: bottom left;
-
 }
+
 </style>

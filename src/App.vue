@@ -1,5 +1,5 @@
 <template>
-  <div class="app bg-light-black text-light-blue">
+  <div class="text-light-blue font-varela">
     <nav-bar/>
     <main-page/>
   </div>
