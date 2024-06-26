@@ -1,6 +1,6 @@
 <template>
-  <div id="intro" class="flex gap-20 h-[calc(100vh-120px)] items-center justify-center">
-    <img :src="profilePicture" alt="profile" class="w-96 rounded-full border border-white shadow-2xl"/>
+  <div id="intro" class="flex gap-20 h-[calc(100vh-74px)] items-center justify-center">
+    <img :src="profilePicture" alt="profile" class="w-96 rounded-full border border-green shadow-2xl"/>
     <div class="text-left w-1/2">
       <div class="flex text-4xl mb-2">
         <AnimatedText
@@ -23,7 +23,7 @@
   </div>
 </template>
 <script setup>
-import AnimatedText from "@components/AnimatedText.vue";
+import AnimatedText from "@components/base/AnimatedText.vue";
 import {ref} from "vue";
 import {useMotion} from "@vueuse/motion";
 import profilePicture from "@assets/my-photo-grey-bg.jpeg"

@@ -29,7 +29,7 @@
 import logo from '@assets/logo.png'
 import {ref, watch} from "vue";
 import {useWindowScroll} from "@vueuse/core";
-import {isInViewport} from "@utils/viewPort.ts";
+import {isInViewport} from "@utils/viewPort";
 
 
 // use https://vueuse.org/core/useWindowScroll/

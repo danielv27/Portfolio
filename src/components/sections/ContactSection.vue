@@ -1,8 +1,8 @@
 <template>
-  <div class="flex items-center justify-center h-screen">
+  <div class="flex items-center bg-light-black justify-center h-[calc(100vh-74px)]">
     <div id="contact" class="flex flex-col items-center justify-center w-full max-w-4xl px-4 text-left">
       <h1 class="w-full flex justify-center text-4xl mb-4">
-        About Me
+        Contact
       </h1>
       <section>
         Alongside a huge passion for developing state-of-the-art software solutions, I always had a product-oriented way

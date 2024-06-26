@@ -23,7 +23,7 @@ function addSmoothScrolling() {
 
       if (targetElement) {
         window.scrollTo({
-          top: targetElement.parentElement!.offsetTop,
+          top: targetElement.parentElement!.offsetTop - 74,
           behavior: 'smooth'
         });
       }
