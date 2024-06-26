@@ -1,13 +1,15 @@
 <template>
   <div class="text-white font-varela">
-    <nav-bar/>
-    <main-page/>
+    <NavBar/>
+    <MainPage/>
+<!--    <SocialButtons/>-->
   </div>
 </template>
 <script setup lang="ts">
 import NavBar from "@components/NavBar.vue";
 import MainPage from "@components/MainPage.vue";
 import {onMounted} from "vue";
+import SocialButtons from "@components/SocialButtons.vue";
 
 function addSmoothScrolling() {
   const links = document.querySelectorAll('a[href^="#"]');

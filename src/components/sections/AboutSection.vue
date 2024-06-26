@@ -1,6 +1,6 @@
 <template>
   <div class="flex bg-green items-center justify-center h-[calc(100vh-74px)]">
-    <div id="about" class="flex justify-center w-2/3 px-4 text-left gap-12 items-center">
+    <div id="about" class="flex justify-center w-2/3 px-4 text-left text-white gap-12 items-center">
       <div>
         <h1 ref="headingRef" class="w-full flex text-4xl mb-4">
           About Me
@@ -24,8 +24,9 @@
 </template>
 <script setup lang="ts">
 import Stack from '@assets/stack-expanded.png'
-import {ref} from "vue";
+import {onMounted, ref} from "vue";
 import {useMotion} from "@vueuse/motion";
+import {isInViewport} from "@utils/viewPort.ts";
 
 const headingRef = ref();
 const contentRef = ref();
@@ -48,8 +49,12 @@ function useMotionCustom(element: any, delay: number) {
   })
 }
 
+
 useMotionCustom(headingRef, 300);
 useMotionCustom(contentRef, 600);
 useMotionCustom(stackImgRef, 1000);
+
+
+
 
 </script>

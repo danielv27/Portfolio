@@ -6,6 +6,7 @@
     <education-section/>
     <projects-sections/>
     <contact-section/>
+    <SocialButtons/>
   </div>
 </template>
 
@@ -17,4 +18,5 @@ import ExperienceSection from "@components/sections/ExperienceSection.vue";
 import EducationSection from "@components/sections/EducationSection.vue";
 import ContactSection from "@components/sections/ContactSection.vue";
 import ProjectsSections from "@components/sections/ProjectsSections.vue";
+import SocialButtons from "@components/SocialButtons.vue";
 </script>
