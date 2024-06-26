@@ -1,12 +1,12 @@
 <template>
-  <div class="bg-light-black opacity-40 rounded-2xl h-80 w-80">
-    <div class="mt-4 ml-4 text-3xl">
-    <slot name="title"/>
+  <div class="flex flex-col p-6 bg-lighter-dark-blue rounded-2xl h-80 w-80">
+    <div class="text-3xl mb-2">
+    <slot class="" name="title"/>
     </div>
     <div>
       <slot name="content"/>
     </div>
-    <div>
+    <div class="mt-auto">
       <slot name="footer"/>
     </div>
   </div>

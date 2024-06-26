@@ -1,5 +1,5 @@
 @import "v-network-graph/lib/style.css";
-
+@import "@egjs/vue3-flicking/dist/flicking.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

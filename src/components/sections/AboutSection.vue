@@ -24,9 +24,8 @@
 </template>
 <script setup lang="ts">
 import Stack from '@assets/stack-expanded.png'
-import {onMounted, ref} from "vue";
+import {ref} from "vue";
 import {useMotion} from "@vueuse/motion";
-import {isInViewport} from "@utils/viewPort.ts";
 
 const headingRef = ref();
 const contentRef = ref();
@@ -38,7 +37,7 @@ function useMotionCustom(element: any, delay: number) {
       opacity: 0,
       y: 10,
     },
-    visibleOnce: {
+    visible: {
       opacity: 1,
       y: 0,
       transition: {
