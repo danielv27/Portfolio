@@ -31,10 +31,7 @@ import {ref, watch} from "vue";
 import {useWindowScroll} from "@vueuse/core";
 import {isInViewport} from "@utils/viewPort";
 
-
-// use https://vueuse.org/core/useWindowScroll/
-
-const { _ , y } = useWindowScroll();
+const { y } = useWindowScroll();
 
 function elementInViewPort(label: string){
   const el = document.getElementById(label.toLowerCase());
