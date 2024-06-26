@@ -2,7 +2,7 @@
   <div class="text-white font-varela">
     <NavBar/>
     <MainPage/>
-<!--    <SocialButtons/>-->
+    <SocialButtons/>
   </div>
 </template>
 <script setup lang="ts">

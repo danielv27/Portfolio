@@ -6,7 +6,6 @@
     <education-section/>
     <projects-sections/>
     <contact-section/>
-    <SocialButtons/>
   </div>
 </template>
 

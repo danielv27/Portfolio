@@ -8,7 +8,13 @@
           Design and implement robust server-side logic. Ensuring databases and APIs are efficient, scalable and secure
           forming the backbone for reliable applications.
         </template>
-        <template v-slot:footer>Robust Systems</template>
+        <template v-slot:footer>
+          <div class="flex gap-1.5 text-light-blue">
+            <VIcon class="text-light-blue" name="si-laravel" :scale="1.5"></VIcon>
+            <VIcon class="text-light-blue" name="si-django" :scale="1.5"></VIcon>
+            <VIcon class="text-light-blue" name="si-firebase" :scale="1.5"></VIcon>
+          </div>
+        </template>
       </VCard>
       <VCard key="Frontend" ref="card1Ref">
         <template v-slot:title>Frontend</template>
@@ -18,8 +24,11 @@
         </template>
         <template v-slot:footer>
           <div class="flex gap-1.5 text-light-blue">
-            <VIcon class="text-light-blue" name="si-vuedotjs" :scale="1.5" ></VIcon>
-            <VIcon class="text-light-blue" name="si-typescript" :scale="1.5"></VIcon>
+            <VIcon name="si-vuedotjs" :scale="1.5"></VIcon>
+            <VIcon name="si-react" :scale="1.5"></VIcon>
+            <VIcon name="si-typescript" :scale="1.5"></VIcon>
+            <VIcon name="si-tailwindcss" :scale="1.5"></VIcon>
+            <VIcon name="si-flutter" :scale="1.5"></VIcon>
           </div>
         </template>
       </VCard>
@@ -29,7 +38,14 @@
           Streamlining deployment with CI/CD practices and containerization. Utilizing DevOps practices to ensure
           efficient operations, infrastructure maintenance and seamless development and deployment workflows.
         </template>
-        <template v-slot:footer>Continuous Innovation</template>
+        <template v-slot:footer>
+          <div class="flex gap-1.5 text-light-blue">
+            <VIcon class="text-light-blue" name="si-docker" :scale="1.5"></VIcon>
+            <VIcon class="text-light-blue" name="si-linux" :scale="1.5"></VIcon>
+            <VIcon class="text-light-blue" name="si-amazonaws" :scale="1.5"></VIcon>
+            <VIcon class="text-light-blue" name="si-github" :scale="1.5"></VIcon>
+          </div>
+        </template>
       </VCard>
       <VCard key="Testing" ref="card4Ref">
         <template v-slot:title>Testing & Quality Assurance</template>
@@ -37,7 +53,12 @@
           Ensuring software reliability through comprehensive testing strategies. This includes implementing unit,
           component and end-to-end tests to maintain high standards of quality and stability.
         </template>
-        <template v-slot:footer>Assured Quality</template>
+        <template v-slot:footer>
+          <div class="flex gap-1.5 text-light-blue">
+            <VIcon class="text-light-blue" name="si-vite" :scale="1.5"></VIcon>
+            <VIcon class="text-light-blue" name="si-testinglibrary" :scale="1.5"></VIcon>
+          </div>
+        </template>
       </VCard>
     </Flicking>
     <span class="flicking-arrow-prev is-thin"></span>
