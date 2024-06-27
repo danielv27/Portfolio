@@ -1,73 +1,28 @@
 <template>
   <div class="flex flex-col items-center mx-20 mt-8">
-    <h1 v-tooltip="'HI'" ref="headingRef" class="text-4xl mb-6">Expertise</h1>
+    <h1 ref="headingRef" class="text-4xl mb-6">Expertise</h1>
     <Flicking class="w-[65vw]" :options="{defaultIndex: 1, circular: true}" :plugins="plugins">
-      <VCard key="Backend" ref="card2Ref">
-        <template v-slot:title>Backend</template>
+      <VCard v-for="card in cards" :key="card.title" ref="cardsRef">
+        <template v-slot:title>
+          {{ card.title }}
+        </template>
         <template v-slot:content>
-          Design and implement robust server-side logic. Ensuring databases and APIs are efficient, scalable and secure
-          forming the backbone for reliable applications.
+          {{ card.content }}
         </template>
         <template v-slot:footer>
           <div class="flex gap-1.5 text-light-blue">
-            <VIcon class="text-light-blue" name="si-laravel" :scale="1.5" v-tippy="'Laravel'"></VIcon>
-            <VIcon class="text-light-blue" name="si-django" :scale="1.5" v-tippy="'Django'"></VIcon>
-            <VIcon class="text-light-blue" name="si-firebase" :scale="1.5" v-tippy="'Firebase'"></VIcon>
-          </div>
-        </template>
-      </VCard>
-      <VCard key="Frontend" ref="card1Ref">
-        <template v-slot:title>Frontend</template>
-        <template v-slot:content>
-          Create engaging, responsive interfaces by optimizing user experience and performance, ensuring seamless and
-          visually appealing applications.
-        </template>
-        <template v-slot:footer>
-          <div class="flex gap-1.5 text-light-blue">
-            <VIcon name="si-vuedotjs" :scale="1.5"></VIcon>
-            <VIcon name="si-react" :scale="1.5"></VIcon>
-            <VIcon name="si-typescript" :scale="1.5"></VIcon>
-            <VIcon name="si-tailwindcss" :scale="1.5"></VIcon>
-            <VIcon name="si-flutter" :scale="1.5"></VIcon>
-          </div>
-        </template>
-      </VCard>
-      <VCard key="DevOps" ref="card3Ref">
-        <template v-slot:title>DevOps</template>
-        <template v-slot:content>
-          Streamlining deployment with CI/CD practices and containerization. Utilizing DevOps practices to ensure
-          efficient operations, infrastructure maintenance and seamless development and deployment workflows.
-        </template>
-        <template v-slot:footer>
-          <div class="flex gap-1.5 text-light-blue">
-            <VIcon class="text-light-blue" name="si-docker" :scale="1.5"/>
-            <VIcon class="text-light-blue" name="si-linux" :scale="1.5"/>
-            <VIcon class="text-light-blue" name="si-amazonaws" :scale="1.5"/>
-            <VIcon class="text-light-blue" name="si-github" :scale="1.5"/>
-          </div>
-        </template>
-      </VCard>
-      <VCard key="Testing" ref="card4Ref">
-        <template v-slot:title>Testing & Quality Assurance</template>
-        <template v-slot:content>
-          Ensuring software reliability through comprehensive testing strategies. This includes implementing unit,
-          component and end-to-end tests to maintain high standards of quality and stability.
-        </template>
-        <template v-slot:footer>
-          <div class="flex gap-1.5 text-light-blue">
-            <VIcon class="text-light-blue" name="si-vite" :scale="1.5"></VIcon>
-            <VIcon class="text-light-blue" name="si-testinglibrary" :scale="1.5"></VIcon>
+            <div v-for="icon in card.icons" :key="icon.name" v-tippy="icon.tooltip">
+              <VIcon :name="icon.name" :scale="1.5"/>
+            </div>
           </div>
         </template>
       </VCard>
     </Flicking>
-    <span class="flicking-arrow-prev is-thin"></span>
-    <span class="flicking-arrow-next is-thin"></span>
   </div>
 </template>
 <script setup lang="ts">
 import VCard from "@components/base/VCard.vue";
-import {ref} from "vue";
+import {onMounted, ref} from "vue";
 import {useMotion} from "@vueuse/motion";
 import Flicking from "@egjs/vue3-flicking";
 import {AutoPlay, Perspective} from "@egjs/flicking-plugins";
@@ -80,14 +35,109 @@ const props = defineProps<Props>();
 
 const headingRef = ref();
 
-const card1Ref = ref();
-const card2Ref = ref();
-const card3Ref = ref();
+interface Icon {
+  name: string;
+  tooltip: string;
+}
+
+interface CardData {
+  title: string;
+  content: string;
+  icons: Icon[]
+}
+
+const cards: CardData[] = [
+  {
+    title: 'Backend',
+    content: 'Design and implement robust server-side logic. Ensuring databases and APIs are efficient, scalable and secure forming the backbone for reliable applications.',
+    icons: [
+      {
+        name: 'si-laravel',
+        tooltip: 'Laravel'
+      },
+      {
+        name: 'si-django',
+        tooltip: 'Django'
+      },
+      {
+        name: 'si-firebase',
+        tooltip: 'Firebase'
+      }
+    ]
+  },
+  {
+    title: 'Frontend',
+    content: 'Create engaging, responsive interfaces by optimizing user experience and performance, ensuring seamless and visually appealing applications.',
+    icons: [
+      {
+        name: 'si-vuedotjs',
+        tooltip: 'VueJs'
+      },
+      {
+        name: 'si-react',
+        tooltip: 'React'
+      },
+      {
+        name: 'si-typescript',
+        tooltip: 'TypeScript'
+      },
+      {
+        name: 'si-tailwindcss',
+        tooltip: 'TailwindCSS'
+      },
+      {
+        name: 'si-flutter',
+        tooltip: 'Flutter'
+      },
+    ]
+  },
+  {
+    title: 'DevOps',
+    content: 'Streamlining deployment with CI/CD practices and containerization. Utilizing DevOps practices to ensure efficient operations, infrastructure maintenance and seamless development and deployment workflows.',
+    icons: [
+      {
+        name: 'si-docker',
+        tooltip: 'Container Orchestration'
+      },
+      {
+        name: 'si-linux',
+        tooltip: 'Monolithic Deployment'
+      },
+      {
+        name: 'si-amazonaws',
+        tooltip: 'Amazon AWS'
+      },
+      {
+        name: 'si-github',
+        tooltip: 'Github Actions (CI/CD)'
+      },
+    ]
+  },
+  {
+    title: 'Testing & Quality Assurance',
+    content: 'Ensuring software reliability through comprehensive testing strategies. This includes implementing unit, component and end-to-end tests to maintain high standards of quality and stability.',
+    icons: [
+      {
+        name: 'si-vite',
+        tooltip: 'Vitest'
+      },
+      {
+        name: 'si-testinglibrary',
+        tooltip: 'Testing Library'
+      }
+    ]
+  },
+];
+
+const cardsRef = ref();
 
 useMotionCustom(headingRef, 0);
-useMotionCustom(card1Ref, 300);
-useMotionCustom(card2Ref, 600);
-useMotionCustom(card3Ref, 900);
+
+onMounted(() => {
+  useMotionCustom(cardsRef.value[0], 300);
+  useMotionCustom(cardsRef.value[1], 600);
+  useMotionCustom(cardsRef.value[2], 900);
+})
 
 function useMotionCustom(element: any, delay: number, opacity = 1) {
   useMotion(element, {
