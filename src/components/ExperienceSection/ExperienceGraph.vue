@@ -1,45 +1,24 @@
 <template>
-  <v-network-graph
-      class="w10"
-      :nodes="nodes"
-      :edges="edges"
-      :layouts="layouts"
-      :configs="initialConfigs"
-  />
+  <VueHorizontalTimeline :items timeline-background="none"/>
 </template>
 
 <script setup lang="ts">
-import * as VNG from 'v-network-graph';
-
-const initialConfigs = VNG.defineConfigs({
-  view: {
-    panEnabled: false,
-    zoomEnabled: false,
-    draggable: false,
-    autoPanAndZoomOnLoad: "center-content",
-    fitContentMargin: "20%",
-
-  },
-})
-
-const nodes = {
-  node1: {name: "Node 1"},
-  node2: {name: "Node 2"},
-  node3: {name: "Node 3"},
-  node4: {name: "Node 4"},
-}
-const edges = {
-  edge1: {source: "node1", target: "node2"},
-  edge2: {source: "node2", target: "node3"},
-  edge3: {source: "node3", target: "node4"},
-}
-const layouts = {
-  nodes: {
-    node1: {x: 0, y: 0},
-    node2: {x: 100, y: 100},
-    node3: {x: 200, y: 0},
-    node4: {x: 300, y: 100},
-  },
-}
+import VueHorizontalTimeline from "vue-horizontal-timeline";
+const example1 = {
+  title: "Capisoft",
+  content:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ex dolor, malesuada luctus scelerisque ac, auctor vitae risus. Vivamus risus dolor, faucibus a bibendum quis, facilisis eget odio.",
+};
+const example2 = {
+  title: "Title example 2",
+  content:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ex dolor, malesuada luctus scelerisque ac, auctor vitae risus. Vivamus risus dolor, faucibus a bibendum quis, facilisis eget odio.",
+};
+const example3 = {
+  title: "Title example 3",
+  content:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ex dolor, malesuada luctus scelerisque ac, auctor vitae risus. Vivamus risus dolor, faucibus a bibendum quis, facilisis eget odio.",
+};
+const items = [example1, example2, example3];
 </script>
 

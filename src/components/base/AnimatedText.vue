@@ -33,7 +33,7 @@ onMounted(() => console.log(wordArrayRef.value?.forEach((spanTag, index) => {
       opacity: 0,
       y: 100
     },
-    visibleOnce: {
+    enter: {
       opacity: 1,
       y: 0,
       transition: {

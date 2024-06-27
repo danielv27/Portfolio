@@ -17,9 +17,6 @@
           </div>
         </template>
       </VCard>
-      <template #viewport>
-        <div class="flicking-pagination"></div>
-      </template>
     </Flicking>
   </div>
 </template>
@@ -28,7 +25,7 @@ import VCard from "@components/base/VCard.vue";
 import {onMounted, ref} from "vue";
 import {useMotion} from "@vueuse/motion";
 import Flicking from "@egjs/vue3-flicking";
-import {AutoPlay, Pagination, Perspective} from "@egjs/flicking-plugins";
+import {AutoPlay, Perspective} from "@egjs/flicking-plugins";
 
 interface Props {
   delay: number;
@@ -157,7 +154,7 @@ function useMotionCustom(element: any, delay: number, opacity = 1) {
       opacity: 0,
       y: 10,
     },
-    visibleOnce: {
+    enter: {
       opacity,
       y: 0,
       transition: {
