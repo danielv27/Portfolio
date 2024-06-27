@@ -1,5 +1,5 @@
 <template>
-  <div ref="target" :style="{
+  <div class="rotate" ref="target" :style="{
     transform: transform,
     transition: 'transform 0.2s',
   }">
@@ -17,7 +17,7 @@ const transform = computed(() => {
   if (isOutside.value) {
     return '';
   }
-  const MAX_ROTATION = 4;
+  const MAX_ROTATION = 10;
 
   const rotationX = (
       (MAX_ROTATION / 2) -
@@ -32,3 +32,10 @@ const transform = computed(() => {
   return `perspective(${elementWidth.value}px) rotateX(${rotationX}deg) rotateY(${rotationY}deg)`;
 })
 </script>
+<style scoped>
+.rotate {
+  transform: v-bind(transform);
+  transition: transform 0.2s;
+}
+
+</style>

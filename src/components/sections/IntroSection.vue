@@ -1,8 +1,8 @@
 <template>
   <div id="intro" class="self-center my-10 lg:my-20 mx-8 lg:mx-32">
-    <img class="absolute w-144 top-28 left-0 lg:top-40 lg:left-10 -z-30" :src="squiggleSVG" alt="squiggle">
+    <img class="absolute w-144 top-28 left-0 lg:top-40 lg:left-10" :src="squiggleSVG" alt="squiggle">
     <div class="flex flex-col lg:flex-row gap-10 lg:gap-40 items-center w-full">
-      <RotateOnHover>
+      <RotateOnHover class="z-10">
         <img
             ref="profileImgRef"
             :src="profilePicture"
@@ -31,7 +31,7 @@
         </div>
       </div>
     </div>
-    <ExpertiseCards :delay="3000"/>
+    <ExpertiseCards class="mt-20" :delay="3000"/>
   </div>
 </template>
 <script setup>
