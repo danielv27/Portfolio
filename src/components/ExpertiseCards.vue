@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col items-center mx-20 mt-8">
-    <h1 ref="headingRef" class="text-4xl mb-6">Expertise</h1>
+    <h1 v-tooltip="'HI'" ref="headingRef" class="text-4xl mb-6">Expertise</h1>
     <Flicking class="w-[65vw]" :options="{defaultIndex: 1, circular: true}" :plugins="plugins">
       <VCard key="Backend" ref="card2Ref">
         <template v-slot:title>Backend</template>
@@ -10,9 +10,9 @@
         </template>
         <template v-slot:footer>
           <div class="flex gap-1.5 text-light-blue">
-            <VIcon class="text-light-blue" name="si-laravel" :scale="1.5"></VIcon>
-            <VIcon class="text-light-blue" name="si-django" :scale="1.5"></VIcon>
-            <VIcon class="text-light-blue" name="si-firebase" :scale="1.5"></VIcon>
+            <VIcon class="text-light-blue" name="si-laravel" :scale="1.5" v-tippy="'Laravel'"></VIcon>
+            <VIcon class="text-light-blue" name="si-django" :scale="1.5" v-tippy="'Django'"></VIcon>
+            <VIcon class="text-light-blue" name="si-firebase" :scale="1.5" v-tippy="'Firebase'"></VIcon>
           </div>
         </template>
       </VCard>
@@ -40,10 +40,10 @@
         </template>
         <template v-slot:footer>
           <div class="flex gap-1.5 text-light-blue">
-            <VIcon class="text-light-blue" name="si-docker" :scale="1.5"></VIcon>
-            <VIcon class="text-light-blue" name="si-linux" :scale="1.5"></VIcon>
-            <VIcon class="text-light-blue" name="si-amazonaws" :scale="1.5"></VIcon>
-            <VIcon class="text-light-blue" name="si-github" :scale="1.5"></VIcon>
+            <VIcon class="text-light-blue" name="si-docker" :scale="1.5"/>
+            <VIcon class="text-light-blue" name="si-linux" :scale="1.5"/>
+            <VIcon class="text-light-blue" name="si-amazonaws" :scale="1.5"/>
+            <VIcon class="text-light-blue" name="si-github" :scale="1.5"/>
           </div>
         </template>
       </VCard>
@@ -107,7 +107,7 @@ function useMotionCustom(element: any, delay: number, opacity = 1) {
 
 const perspectivePlugin = new Perspective({rotate: 0.5});
 const autoPlayPlugin = new AutoPlay({
-  duration: 5000,
+  duration: 6000,
   direction: "NEXT",
   stopOnHover: true,
   animationDuration: 700,

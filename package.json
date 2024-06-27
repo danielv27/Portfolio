@@ -17,8 +17,10 @@
     "defu": "^6.1.4",
     "oh-vue-icons": "^1.0.0-rc3",
     "path": "^0.12.7",
+    "tippy": "^0.0.0",
     "v-network-graph": "^0.9.16",
-    "vue": "^3.4.29"
+    "vue": "^3.4.30",
+    "vue-tippy": "^6.4.3"
   },
   "devDependencies": {
     "@types/node": "^20.14.8",
