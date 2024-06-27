@@ -31,7 +31,7 @@
         </div>
       </div>
     </div>
-    <ExpertiseCards class="mt-20" :delay="3000"/>
+    <ExpertiseCards class="mt-24" :delay="3000"/>
   </div>
 </template>
 <script setup>
