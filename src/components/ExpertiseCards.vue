@@ -1,8 +1,8 @@
 <template>
   <div class="flex flex-col items-center mx-20 mt-8">
     <h1 ref="headingRef" class="text-4xl mb-6">Expertise</h1>
-    <Flicking class="w-[65vw]" :options="{defaultIndex: 1, circular: true}" :plugins="plugins">
-      <VCard v-for="card in cards" :key="card.title" ref="cardsRef">
+    <Flicking ref="flicking" class="w-[65vw]" :options="{defaultIndex: 1, circular: true}" :plugins="plugins">
+      <VCard v-for="(card, index) in cards" :key="card.title" ref="cardsRef" @click="goToCard(index)">
         <template v-slot:title>
           {{ card.title }}
         </template>
@@ -17,6 +17,9 @@
           </div>
         </template>
       </VCard>
+      <template #viewport>
+        <div class="flicking-pagination"></div>
+      </template>
     </Flicking>
   </div>
 </template>
@@ -25,7 +28,7 @@ import VCard from "@components/base/VCard.vue";
 import {onMounted, ref} from "vue";
 import {useMotion} from "@vueuse/motion";
 import Flicking from "@egjs/vue3-flicking";
-import {AutoPlay, Perspective} from "@egjs/flicking-plugins";
+import {AutoPlay, Pagination, Perspective} from "@egjs/flicking-plugins";
 
 interface Props {
   delay: number;
@@ -62,6 +65,10 @@ const cards: CardData[] = [
       {
         name: 'si-firebase',
         tooltip: 'Firebase'
+      },
+      {
+        name: 'si-express',
+        tooltip: 'Express'
       }
     ]
   },
@@ -122,6 +129,10 @@ const cards: CardData[] = [
         tooltip: 'Vitest'
       },
       {
+        name: 'si-webpack',
+        tooltip: 'Webpack'
+      },
+      {
         name: 'si-testinglibrary',
         tooltip: 'Testing Library'
       }
@@ -130,6 +141,7 @@ const cards: CardData[] = [
 ];
 
 const cardsRef = ref();
+const flicking = ref();
 
 useMotionCustom(headingRef, 0);
 
@@ -165,8 +177,11 @@ const autoPlayPlugin = new AutoPlay({
 
 const plugins = ref<any[]>([
   perspectivePlugin,
-  autoPlayPlugin,
+  autoPlayPlugin
 ]);
 
+function goToCard(index: number) {
+  flicking.value.moveTo(index);
+}
 
 </script>
