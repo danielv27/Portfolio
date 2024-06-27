@@ -1,10 +1,10 @@
 <template>
-  <div id="intro" class="self-center my-20 mx-32">
-    <img class="absolute w-144 top-40 left-10 -z-30" :src="squiggleSVG" alt="squiggle">
-    <div class="flex gap-40 items-center w-full">
-      <img :src="profilePicture" alt="profile" class="max-w-96 rounded-full border-2 border-green shadow-2xl\"/>
+  <div id="intro" class="self-center my-10 lg:my-20 mx-8 lg:mx-32">
+    <img class="absolute w-144 top-28 left-0 lg:top-40 lg:left-10 -z-30" :src="squiggleSVG" alt="squiggle">
+    <div class="flex flex-col lg:flex-row gap-10 lg:gap-40 items-center w-full">
+      <img :src="profilePicture" alt="profile" class="max-w-80 lg:max-w-96 rounded-full border-2 border-green shadow-2xl\"/>
       <div class="text-left">
-        <div class="flex text-4xl mb-2">
+        <div class="flex text-xl lg:text-4xl mb-2">
           <AnimatedText
               text="Hi, I'm Daniel,"
               :delay="400"
