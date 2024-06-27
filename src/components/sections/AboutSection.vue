@@ -1,6 +1,6 @@
 <template>
-  <div class="flex bg-green items-center justify-center h-[calc(100vh-74px)]">
-    <div id="about" class="flex justify-center w-2/3 px-4 text-left text-white gap-12 items-center">
+  <div class="flex bg-gradient-to-b from-dark-blue to-green justify-center h-144">
+    <div id="about" class="flex w-2/3 px-4 text-left text-white mt-16 gap-12">
       <div>
         <h1 ref="headingRef" class="w-full flex text-4xl mb-4">
           About Me
@@ -18,12 +18,12 @@
           practices such as containerization and CI/CD pipelines for both deployment and testing.
         </section>
       </div>
-      <img ref="stackImgRef" class="w-48 object-contain" :src="Stack" alt="stack"/>
+      <img ref="stackImgRef" class="w-48 object-contain self-start" :src="Stack" alt="stack"/>
     </div>
   </div>
 </template>
 <script setup lang="ts">
-import Stack from '@assets/stack-expanded.png'
+import Stack from '@assets/stack-expanded.svg'
 import {ref} from "vue";
 import {useMotion} from "@vueuse/motion";
 
@@ -37,7 +37,7 @@ function useMotionCustom(element: any, delay: number) {
       opacity: 0,
       y: 10,
     },
-    visible: {
+    visibleOnce: {
       opacity: 1,
       y: 0,
       transition: {

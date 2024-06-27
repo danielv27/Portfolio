@@ -1,9 +1,9 @@
 <template>
-  <VueHorizontalTimeline :items timeline-background="none"/>
+  <VTimeline/>
 </template>
 
 <script setup lang="ts">
-import VueHorizontalTimeline from "vue-horizontal-timeline";
+import VTimeline from "@components/base/VTimeline.vue";
 const example1 = {
   title: "Capisoft",
   content:
@@ -21,4 +21,7 @@ const example3 = {
 };
 const items = [example1, example2, example3];
 </script>
+<style scoped>
+
+</style>
 
