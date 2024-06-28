@@ -8,3 +8,37 @@ body {
     background-color: #1F2833;
     font-family: 'Roboto', sans-serif;
 }
+
+.nested-enter-active,
+.nested-leave-active {
+    transition: all 0.3s ease-in-out;
+}
+
+/* delay leave of parent element */
+.nested-leave-active {
+    transition-delay: 0.25s;
+}
+
+/* Transition with nested animation (requires wrapping an element ina transition with name nested */
+.nested-enter-from,
+.nested-leave-to {
+    transform: translateX(30px);
+    opacity: 0;
+}
+
+/* we can also transition nested elements using nested selectors */
+.nested-enter-active .inner,
+.nested-leave-active .inner {
+    transition: all 0.3s ease-in-out;
+}
+
+/* delay enter of nested element */
+.nested-enter-active .inner {
+    transition-delay: 0.25s;
+}
+
+.nested-enter-from .inner,
+.nested-leave-to .inner {
+    transform: translateX(30px);
+    opacity: 0.001;
+}

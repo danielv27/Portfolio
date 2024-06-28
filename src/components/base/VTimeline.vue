@@ -4,7 +4,7 @@
       <li
           v-for="(entry, index) in entries"
           :key="index"
-          class="transition ease-in-out delay-75 bg-blue-500 active:text-dark-blue hover:scale-110 duration-300"
+          class="entry transition ease-in-out delay-75 bg-blue-500 active:text-dark-blue hover:scale-110 duration-300"
           :class="{'text-dark-blue' : currentIndex === index}"
           @mouseenter="setIndex(index)"
       >
@@ -32,7 +32,7 @@
         <div class="inner h-full flex flex-col justify-between">
           <div>
             <h1 class="text-2xl mb-6">{{ currentEntry.title }}</h1>
-            <div>{{ currentEntry.content }}</div>
+            <div v-html="currentEntry.content"></div>
           </div>
           <img class="self-end" :class="currentEntry.iconStyles" :src="currentEntry.icon" :alt="currentEntry.title">
         </div>
@@ -47,20 +47,19 @@ import dongItSvg from '@assets/dongIT.svg'
 import myLogo from '@assets/logo.png'
 import zorgpleinLogo from '@assets/zorgplein-white.png'
 import capisoftLogo from '@assets/capiscoft-white.png'
-import {computed, onMounted, ref, watch} from 'vue';
-import {useWindowScroll} from "@vueuse/core";
-import {isInViewport} from "@utils/viewPort.ts";
+import { computed, onMounted, ref, watch } from 'vue';
+import { useWindowScroll } from "@vueuse/core";
+import { isInViewport } from "@utils/viewPort.ts";
 
 const show = ref(false);
 const setShow = (value: boolean) => (show.value = value);
 
 const cardRef = ref();
-const {y} = useWindowScroll();
+const { y } = useWindowScroll();
 
 onMounted(() => {
   watch(y, () => setShow(isInViewport(cardRef.value)));
 })
-
 
 const currentIndex = ref<number>(0);
 const setIndex = (index: number) => (currentIndex.value = index);
@@ -77,41 +76,59 @@ const entries: Entry[] = [
   {
     date: 'Aug 2023',
     title: 'Software Engineer, DongIT',
-    content: '',
+    content: `
+      <ul>
+        <li>Integrating modern frontend JavaScript frameworks into large-scale projects to elevate user experience, optimize website performance, and ensure security protocols.</li>
+        <li>Taking on DevOps responsibilities, streamlining deployment processes and maintaining infrastructure to ensure seamless and efficient operations.</li>
+        <li>Implementing comprehensive component and unit testing using frameworks like Vitest to guarantee the reliability and stability of our applications, contributing to the overall quality and robustness of software solutions.</li>
+      </ul>`,
     icon: dongItSvg,
     iconStyles: 'max-h-16 mb-1'
   },
   {
     date: 'Nov 2022',
     title: 'Full Stack Developer, Capisoft B.V.',
-    content: '',
+    content: `
+      <ul>
+        <li>Adaptation between back-end and front-end.</li>
+        <li>Working with different development stacks (depending on customer needs).</li>
+        <li>Supervising, testing and securing existing code to ensure maintainability and extensibility.</li>
+        <li>Collaborating through development tools such as Github, Trello, and Jira.</li>
+      </ul>`,
     icon: capisoftLogo,
     iconStyles: 'max-h-10 mb-4',
   },
   {
     date: 'Nov 2022',
     title: 'Frontend Lead, Zorgplein.online',
-    content: '',
+    content: `
+      <ul>
+        <li>Overseeing all aspects of the front-end side of a cross-platform mobile application.</li>
+        <li>Planning, delegation, deployment, and testing of various components, ensuring high standards.</li>
+      </ul>`,
     icon: zorgpleinLogo,
     iconStyles: 'max-h-12 mb-4'
-
   },
   {
     date: 'Feb 2022',
     title: 'Full Stack Developer, DBV Software Solutions',
-    content: '',
+    content: `
+      <ul>
+        <li>Worked on several projects using frameworks such as React, React Native, Firebase, and Flutter.</li>
+        <li>Created full stack applications that run natively on all platforms (mobile, desktop, and web).</li>
+      </ul>`,
     icon: myLogo,
     iconStyles: 'max-h-16 pb-4'
   },
   {
     date: 'Sep 2021',
     title: 'Teaching Assistant, Vrije Universiteit Amsterdam',
-    content: 'Work with smaller groups of Computer Science and AI students to reinforce the learning process for various courses they take along the year with the main focus on developing knowledge and coding skills.',
+    content: `
+      <p>Work with smaller groups of Computer Science and AI students to reinforce the learning process for various courses they take along the year with the main focus on developing knowledge and coding skills.</p>`,
     icon: vuSvg,
     iconStyles: 'max-h-20'
   },
 ];
-
 
 const currentEntry = computed(() => entries[currentIndex.value]);
 </script>
@@ -121,36 +138,4 @@ li {
   height: 90px;
 }
 
-.nested-enter-active,
-.nested-leave-active {
-  transition: all 0.3s ease-in-out;
-}
-
-/* delay leave of parent element */
-.nested-leave-active {
-  transition-delay: 0.25s;
-}
-
-.nested-enter-from,
-.nested-leave-to {
-  transform: translateX(30px);
-  opacity: 0;
-}
-
-/* we can also transition nested elements using nested selectors */
-.nested-enter-active .inner,
-.nested-leave-active .inner {
-  transition: all 0.3s ease-in-out;
-}
-
-/* delay enter of nested element */
-.nested-enter-active .inner {
-  transition-delay: 0.25s;
-}
-
-.nested-enter-from .inner,
-.nested-leave-to .inner {
-  transform: translateX(30px);
-  opacity: 0.001;
-}
 </style>
