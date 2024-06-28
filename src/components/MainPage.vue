@@ -4,7 +4,6 @@
     <about-section/>
     <experience-section/>
     <education-section/>
-    <projects-sections/>
     <contact-section/>
   </div>
 </template>

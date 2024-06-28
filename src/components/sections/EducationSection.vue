@@ -1,55 +1,38 @@
 <template>
-  <div class="flex bg-dark-blue items-center justify-center h-[calc(100vh-74px)]">
-    <div id="education" class="flex justify-center w-2/3 px-4 text-left gap-12 items-center">
-      <div>
-        <h1 ref="headingRef" class="w-full flex text-4xl mb-4">
-          About Me
-        </h1>
-        <section ref="contentRef">
-          Hi, my name is Daniel Berzak Verner and I am a full-stack software engineer specializing in frontend development.
-          <br><br>
-          Alongside love for developing state-of-the-art full-stack software solutions,
-          I'm deeply passionate about creating software that not only works well but feels great to use.
-          This led me to primarily focus on frontend development, ensuring application components are modular, robust, flexible
-          and visually appealing.
-          <br><br>
-          Along side frontend development, creating full-stack projects helped me establish a firm understanding of other parts of
-          the development stack including backend development, with practices like the micro-service architecture and DevOps, incorporating
-          practices such as containerization and CI/CD pipelines for both deployment and testing.
-        </section>
+  <div id="education" class="education-section my-auto pt-12 h-[65vh] px-32 bg-gradient-to-b from-light-blue to-dark-blue">
+    <h2 class="text-3xl font-bold mb-6">Education</h2>
+    <div class="education-cards grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div v-for="(education, index) in educations" :key="index" class="education-card bg-dark-blue rounded-lg shadow-md p-6">
+        <h3 class="text-xl font-semibold mb-2">{{ education.degree }}</h3>
+        <p class="text-gray-700">{{ education.institution }}</p>
+        <p class="text-gray-500">{{ education.period }}</p>
       </div>
-      <img ref="stackImgRef" class="w-48 object-contain" :src="Stack" alt="stack"/>
     </div>
   </div>
 </template>
+
 <script setup lang="ts">
-import Stack from '@assets/stack-expanded.png'
-import {ref} from "vue";
-import {useMotion} from "@vueuse/motion";
+const educations = [
+  {
+    degree: 'MSc Software Engineering',
+    institution: 'Universiteit van Amsterdam',
+    period: 'Sep 2023 — Aug 2024'
+  },
+  {
+    degree: 'BSc Computer Science',
+    institution: 'Vrije Universiteit Amsterdam',
+    period: 'Sep 2020 — Aug 2023'
+  }
+];
+</script>
 
-const headingRef = ref();
-const contentRef = ref();
-const stackImgRef = ref();
+<style scoped>
 
-function useMotionCustom(element: any, delay: number) {
-  useMotion(element, {
-    initial: {
-      opacity: 0,
-      y: 10,
-    },
-    visibleOnce: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        delay,
-        duration: 500,
-      }
-    }
-  })
+.education-card {
+  transition: transform 0.3s;
 }
 
-useMotionCustom(headingRef, 300);
-useMotionCustom(contentRef, 600);
-useMotionCustom(stackImgRef, 1000);
-
-</script>
+.education-card:hover {
+  transform: scale(1.05);
+}
+</style>

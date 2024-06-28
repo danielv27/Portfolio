@@ -41,7 +41,7 @@ function elementInViewPort(label: string){
 }
 
 
-const navLabels = ['About', 'Experience', 'Education', 'Projects', 'Contact'];
+const navLabels = ['About', 'Experience', 'Education', 'Contact'];
 
 const navItems = ref(navLabels.map(label => ({
   label,
