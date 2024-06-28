@@ -1,5 +1,5 @@
 <template>
-  <div @mouseenter="setShow(true)" class="flex w-1/2 h-144">
+  <div class="flex w-1/2 h-144">
     <ul class="w-1/12 timeline timeline-vertical text-white">
       <li
           v-for="(entry, index) in entries"
@@ -8,7 +8,7 @@
           :class="{'text-dark-blue' : currentIndex === index}"
           @mouseenter="setIndex(index)"
       >
-        <hr v-if="index !== 0" />
+        <hr v-if="index !== 0"/>
         <div class="timeline-start">{{ entry.date }}</div>
         <div class="timeline-middle">
           <svg
@@ -24,17 +24,17 @@
             />
           </svg>
         </div>
-        <hr v-if="index !== entries.length - 1" />
+        <hr v-if="index !== entries.length - 1"/>
       </li>
     </ul>
     <Transition :duration="550" name="nested">
-      <div v-if="show" class="mt-5 px-6 pt-5 w-11/12 h-[73%] bg-dark-blue rounded-b-4xl rounded-r-4xl">
+      <div ref="cardRef" v-show="show" class="mt-5 px-6 pt-14 w-11/12 h-[73%] bg-dark-blue rounded-b-4xl rounded-r-4xl">
         <div class="inner h-full flex flex-col justify-between">
           <div>
-          <h1 class="text-2xl">{{ currentEntry.title }}</h1>
-          <div>{{ currentEntry.content }}</div>
+            <h1 class="text-2xl mb-6">{{ currentEntry.title }}</h1>
+            <div>{{ currentEntry.content }}</div>
           </div>
-          <img class="max-w-32 self-end" :src="currentEntry.icon" :alt="currentEntry.title">
+          <img class="self-end" :class="currentEntry.iconStyles" :src="currentEntry.icon" :alt="currentEntry.title">
         </div>
       </div>
     </Transition>
@@ -43,10 +43,25 @@
 
 <script setup lang="ts">
 import vuSvg from '@assets/vu.svg';
-import { computed, ref } from 'vue';
+import dongItSvg from '@assets/dongIT.svg'
+import myLogo from '@assets/logo.png'
+import zorgpleinLogo from '@assets/zorgplein-white.png'
+import capisoftLogo from '@assets/capiscoft-white.png'
+import {computed, onMounted, ref, watch} from 'vue';
+import {useWindowScroll} from "@vueuse/core";
+import {isInViewport} from "@utils/viewPort.ts";
 
 const show = ref(false);
 const setShow = (value: boolean) => (show.value = value);
+
+const cardRef = ref();
+const { y } = useWindowScroll();
+
+onMounted(() => {
+  watch(y, () => setShow(isInViewport(cardRef.value)));
+})
+
+
 
 const currentIndex = ref<number>(0);
 const setIndex = (index: number) => (currentIndex.value = index);
@@ -56,6 +71,7 @@ interface Entry {
   title: string;
   content: string;
   icon: string;
+  iconStyles?: string;
 }
 
 const entries: Entry[] = [
@@ -63,31 +79,37 @@ const entries: Entry[] = [
     date: 'Sep 2021',
     title: 'Teaching Assistant, Vrije Universiteit Amsterdam',
     content: 'Work with smaller groups of Computer Science and AI students to reinforce the learning process for various courses they take along the year with the main focus on developing knowledge and coding skills.',
-    icon: vuSvg
+    icon: vuSvg,
+    iconStyles: 'max-h-20'
   },
   {
     date: 'Feb 2022',
     title: 'Full Stack Developer, DBV Software Solutions',
     content: '',
-    icon: vuSvg
+    icon: myLogo,
+    iconStyles: 'max-h-16 pb-4'
   },
   {
     date: 'Nov 2022',
     title: 'Frontend Lead, Zorgplein.online',
     content: '',
-    icon: vuSvg
+    icon: zorgpleinLogo,
+    iconStyles: 'max-h-12 mb-4'
+
   },
   {
     date: 'Nov 2022',
     title: 'Full Stack Developer, Capisoft B.V.',
     content: '',
-    icon: vuSvg
+    icon: capisoftLogo,
+    iconStyles: 'max-h-10 mb-4',
   },
   {
     date: 'Aug 2023',
     title: 'Software Engineer, DongIT',
     content: '',
-    icon: vuSvg
+    icon: dongItSvg,
+    iconStyles: 'max-h-16 mb-1'
   }
 ];
 

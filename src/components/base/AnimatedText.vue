@@ -27,7 +27,7 @@ const textArray = computed(() => props.text.split(' '));
 
 const wordArrayRef = ref<HTMLSpanElement[]>();
 
-onMounted(() => console.log(wordArrayRef.value?.forEach((spanTag, index) => {
+onMounted(() => wordArrayRef.value?.forEach((spanTag, index) => {
   useMotion(spanTag, {
     initial: {
       opacity: 0,
@@ -45,6 +45,6 @@ onMounted(() => console.log(wordArrayRef.value?.forEach((spanTag, index) => {
       }
     },
   })
-})))
+}));
 
 </script>

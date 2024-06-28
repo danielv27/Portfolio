@@ -2,7 +2,7 @@ export function isInViewport(element?: Element) {
     if(! element){
         return false;
     }
-    const rect = element.getBoundingClientRect();
+    const rect = element.firstElementChild?.getBoundingClientRect() ?? element.getBoundingClientRect();
     const html = document.documentElement;
     return (
         rect.top >= 0 &&
