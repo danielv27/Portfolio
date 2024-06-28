@@ -2,7 +2,7 @@
   <div @mouseenter="setShow(true)" @mouseleave="setShow(false)" class="flex w-1/2 h-144">
     <ul class=" w-1/12 timeline timeline-vertical text-white" >
       <li :class="listClass" @mouseenter="setIndex(0)">
-        <div class="timeline-start">Sep 2021</div>
+        <div class="timeline-start" :class="{'text-dark-blue': currentIndex === 0}">Sep 2021</div>
         <div class="timeline-middle">
           <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -19,7 +19,7 @@
       </li>
       <li :class="listClass" @mouseenter="setIndex(1)">
         <hr/>
-        <div class="timeline-start">Feb 2022</div>
+        <div class="timeline-start" :class="{'text-dark-blue': currentIndex === 1}">Feb 2022</div>
         <div class="timeline-middle ">
           <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -32,12 +32,11 @@
                 clip-rule="evenodd"/>
           </svg>
         </div>
-        <!--        <div class="timeline-end timeline-box bg-dark-blue">Full Stack Developer, DBV Software Solutions</div>-->
         <hr/>
       </li>
       <li :class="listClass" @mouseenter="setIndex(2)">
         <hr/>
-        <div class=" timeline-start">Nov 2022</div>
+        <div class=" timeline-start" :class="{'text-dark-blue': currentIndex === 2}">Nov 2022</div>
         <div class="timeline-middle">
           <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -50,12 +49,11 @@
                 clip-rule="evenodd"/>
           </svg>
         </div>
-        <!--        <div class="timeline-end timeline-box bg-dark-blue">Frontend Lead, Zorgplein.online</div>-->
         <hr/>
       </li>
       <li :class="listClass" @mouseenter="setIndex(3)">
         <hr/>
-        <div class="timeline-start">Nov 2022</div>
+        <div class="timeline-start" :class="{'text-dark-blue': currentIndex === 3}">Nov 2022</div>
         <div class="timeline-middle">
           <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -68,12 +66,11 @@
                 clip-rule="evenodd"/>
           </svg>
         </div>
-        <!--        <div class="timeline-end timeline-box bg-dark-blue">Full Stack Developer, Capisoft B.V.</div>-->
         <hr/>
       </li>
       <li :class="listClass" @mouseenter="setIndex(4)">
         <hr/>
-        <div class="timeline-start">Aug 2023</div>
+        <div class="timeline-start" :class="{'text-dark-blue': currentIndex === 4}">Aug 2023</div>
         <div class="timeline-middle">
           <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -86,14 +83,13 @@
                 clip-rule="evenodd"/>
           </svg>
         </div>
-        <!--        <div class="timeline-end timeline-box bg-dark-blue">Software Engineer, DongIT</div>-->
       </li>
     </ul>
     <Transition :duration="550" name="nested">
-      <div class="mt-5 p-5 w-11/12 h-[75%] bg-dark-blue rounded-b-4xl rounded-r-4xl" v-if="show">
+      <div class="mt-5 p-5 w-11/12 h-[73%] bg-dark-blue rounded-b-4xl rounded-r-4xl" v-if="show">
         <div class="inner">
-          <div>{{ content }}</div>
-
+          <h1 class="text-2xl">{{ currentEntry.title }}</h1>
+          <div>{{ currentEntry.content }}</div>
         </div>
       </div>
     </Transition>
@@ -147,7 +143,8 @@ const entries: Entry[] = [
 
 const listClass = "transition ease-in-out delay-75 bg-blue-500 hover:text-dark-blue hover:scale-110 hover:bg-indigo-500 duration-300";
 
-const content = computed(() => entries[currentIndex.value].title);
+const currentEntry = computed(() => entries[currentIndex.value]);
+
 
 
 </script>
