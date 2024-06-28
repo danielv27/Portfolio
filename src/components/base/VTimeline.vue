@@ -1,5 +1,5 @@
 <template>
-  <div class="flex w-1/2 h-144">
+  <div class="flex w-1/2">
     <ul class="w-1/12 timeline timeline-vertical text-white">
       <li
           v-for="(entry, index) in entries"
@@ -28,7 +28,7 @@
       </li>
     </ul>
     <Transition :duration="550" name="nested">
-      <div ref="cardRef" v-show="show" class="mt-5 px-6 pt-14 w-11/12 h-[73%] bg-dark-blue rounded-b-4xl rounded-r-4xl">
+      <div ref="cardRef" v-show="show" class="mt-5 px-6 pt-14 w-11/12 h-full bg-dark-blue rounded-b-4xl rounded-r-4xl">
         <div class="inner h-full flex flex-col justify-between">
           <div>
             <h1 class="text-2xl mb-6">{{ currentEntry.title }}</h1>
@@ -126,7 +126,7 @@ const entries: Entry[] = [
     content: `
       <p>Work with smaller groups of Computer Science and AI students to reinforce the learning process for various courses they take along the year with the main focus on developing knowledge and coding skills.</p>`,
     icon: vuSvg,
-    iconStyles: 'max-h-20'
+    iconStyles: 'max-h-20 max-w-32'
   },
 ];
 

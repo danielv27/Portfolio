@@ -1,5 +1,5 @@
 <template>
-  <div class="flex bg-green items-center justify-center h-[calc(100vh-74px)]">
+  <div class="flex bg-dark-blue items-center justify-center h-[calc(100vh-74px)]">
     <div id="education" class="flex justify-center w-2/3 px-4 text-left gap-12 items-center">
       <div>
         <h1 ref="headingRef" class="w-full flex text-4xl mb-4">
