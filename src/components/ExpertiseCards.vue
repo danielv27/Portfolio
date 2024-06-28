@@ -1,8 +1,8 @@
 <template>
   <div class="flex flex-col items-center mx-20 mt-8">
     <h1 ref="headingRef" class="text-4xl mb-6">Expertise</h1>
-    <Flicking ref="flicking" class="w-[66vw]" :options="{defaultIndex: 1, circular: true}" :plugins="plugins">
-      <VCard v-for="(card, index) in cards" :key="card.title" ref="cardsRef" class="cursor-pointer" @click="goToCard(index)">
+    <Flicking ref="flicking" class="w-[66vw]" :options="{defaultIndex: 1, circular: true, panelsPerView: 3}" :plugins="plugins">
+      <VCard v-for="(card, index) in cards" :key="card.title" ref="cardsRef" @click="goToCard(index)">
         <template v-slot:title>
           <div class="flex gap-2 items-center">
             {{ card.title }}
