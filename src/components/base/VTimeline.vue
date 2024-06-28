@@ -2,7 +2,7 @@
   <div @mouseenter="setShow(true)" @mouseleave="setShow(false)" class="flex w-1/2 h-144">
     <ul class=" w-1/12 timeline timeline-vertical text-white" >
       <li :class="listClass" @mouseenter="setIndex(0)">
-        <div class="timeline-start">Set 2021</div>
+        <div class="timeline-start">Sep 2021</div>
         <div class="timeline-middle">
           <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -90,7 +90,7 @@
       </li>
     </ul>
     <Transition :duration="550" name="nested">
-      <div class="mt-10 p-5 w-11/12 h-[75%] bg-dark-blue rounded-b-4xl rounded-r-4xl" v-if="show">
+      <div class="mt-5 p-5 w-11/12 h-[75%] bg-dark-blue rounded-b-4xl rounded-r-4xl" v-if="show">
         <div class="inner">
           <div>{{ content }}</div>
 
@@ -153,6 +153,10 @@ const content = computed(() => entries[currentIndex.value].title);
 </script>
 <style scoped>
 
+li {
+  height: 90px;
+}
+
 .nested-enter-active, .nested-leave-active {
   transition: all 0.3s ease-in-out;
 }
@@ -180,11 +184,6 @@ const content = computed(() => entries[currentIndex.value].title);
 .nested-enter-from .inner,
 .nested-leave-to .inner {
   transform: translateX(30px);
-  /*
-  	Hack around a Chrome 96 bug in handling nested opacity transitions.
-    This is not needed in other browsers or Chrome 99+ where the bug
-    has been fixed.
-  */
   opacity: 0.001;
 }
 </style>
