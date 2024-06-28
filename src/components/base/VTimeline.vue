@@ -1,5 +1,6 @@
 <template>
-    <ul class="rounded-xl border-white w-4/5 p-8 timeline timeline-vertical text-white">
+  <div class="flex w-1/2 h-144">
+    <ul class="w-1/12 timeline timeline-vertical text-white" @mouseenter="setShow(true)" @mouseleave="setShow(false)">
       <li>
         <div class="timeline-start">Sep 2021</div>
         <div class="timeline-middle">
@@ -14,7 +15,7 @@
                 clip-rule="evenodd"/>
           </svg>
         </div>
-        <div class="timeline-end timeline-box bg-dark-blue">Teaching Assistant, Vrije Universiteit Amsterdam</div>
+        <!--        <div class="timeline-end timeline-box bg-dark-blue">Teaching Assistant, Vrije Universiteit Amsterdam</div>-->
         <hr/>
       </li>
       <li>
@@ -32,7 +33,7 @@
                 clip-rule="evenodd"/>
           </svg>
         </div>
-        <div class="timeline-end timeline-box bg-dark-blue">Full Stack Developer, DBV Software Solutions</div>
+        <!--        <div class="timeline-end timeline-box bg-dark-blue">Full Stack Developer, DBV Software Solutions</div>-->
         <hr/>
       </li>
       <li>
@@ -50,7 +51,7 @@
                 clip-rule="evenodd"/>
           </svg>
         </div>
-        <div class="timeline-end timeline-box bg-dark-blue">Frontend Lead, Zorgplein.online</div>
+        <!--        <div class="timeline-end timeline-box bg-dark-blue">Frontend Lead, Zorgplein.online</div>-->
         <hr/>
       </li>
       <li>
@@ -68,7 +69,7 @@
                 clip-rule="evenodd"/>
           </svg>
         </div>
-        <div class="timeline-end timeline-box bg-dark-blue">Full Stack Developer, Capisoft B.V.</div>
+        <!--        <div class="timeline-end timeline-box bg-dark-blue">Full Stack Developer, Capisoft B.V.</div>-->
         <hr/>
       </li>
       <li>
@@ -86,10 +87,68 @@
                 clip-rule="evenodd"/>
           </svg>
         </div>
-        <div class="timeline-end timeline-box bg-dark-blue">Software Engineer, DongIT</div>
+        <!--        <div class="timeline-end timeline-box bg-dark-blue">Software Engineer, DongIT</div>-->
       </li>
     </ul>
+    <Transition :duration="550" name="nested">
+      <div class="mt-10 p-5 w-11/12 h-4/5 bg-dark-blue rounded-b-4xl rounded-r-4xl" v-if="show">
+        <div class="inner">
+          Hello
+        </div>
+      </div>
+    </Transition>
+  </div>
 </template>
 
 <script setup lang="ts">
+
+import {ref} from "vue";
+
+const show = ref(false);
+const setShow = (value: boolean) => show.value = value;
+
+
+
+
 </script>
+<style scoped>
+
+li {
+  min-height: 100px;
+}
+
+.nested-enter-active, .nested-leave-active {
+  transition: all 0.3s ease-in-out;
+}
+/* delay leave of parent element */
+.nested-leave-active {
+  transition-delay: 0.25s;
+}
+
+.nested-enter-from,
+.nested-leave-to {
+  transform: translateX(30px);
+  opacity: 0;
+}
+
+/* we can also transition nested elements using nested selectors */
+.nested-enter-active .inner,
+.nested-leave-active .inner {
+  transition: all 0.3s ease-in-out;
+}
+/* delay enter of nested element */
+.nested-enter-active .inner {
+  transition-delay: 0.25s;
+}
+
+.nested-enter-from .inner,
+.nested-leave-to .inner {
+  transform: translateX(30px);
+  /*
+  	Hack around a Chrome 96 bug in handling nested opacity transitions.
+    This is not needed in other browsers or Chrome 99+ where the bug
+    has been fixed.
+  */
+  opacity: 0.001;
+}
+</style>

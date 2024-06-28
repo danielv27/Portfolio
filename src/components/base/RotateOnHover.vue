@@ -28,7 +28,6 @@ const transform = computed(() => {
       (elementX.value / elementWidth.value) * MAX_ROTATION -
       (MAX_ROTATION / 2)
   ).toFixed(2);
-  console.log(elementWidth);
   return `perspective(${elementWidth.value}px) rotateX(${rotationX}deg) rotateY(${rotationY}deg)`;
 })
 </script>

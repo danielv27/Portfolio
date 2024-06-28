@@ -1,8 +1,8 @@
 <template>
   <div class="flex flex-col items-center mx-20 mt-8">
     <h1 ref="headingRef" class="text-4xl mb-6">Expertise</h1>
-    <Flicking ref="flicking" class="w-[65vw]" :options="{defaultIndex: 1, circular: true}" :plugins="plugins">
-      <VCard v-for="(card, index) in cards" :key="card.title" ref="cardsRef" @click="goToCard(index)">
+    <Flicking ref="flicking" class="w-[66vw]" :options="{defaultIndex: 1, circular: true}" :plugins="plugins">
+      <VCard v-for="(card, index) in cards" :key="card.title" ref="cardsRef" class="cursor-pointer" @click="goToCard(index)">
         <template v-slot:title>
           <div class="flex gap-2 items-center">
             {{ card.title }}
@@ -24,7 +24,7 @@
 </template>
 <script setup lang="ts">
 import VCard from "@components/base/VCard.vue";
-import {onMounted, ref} from "vue";
+import {type ComponentPublicInstance, onMounted, ref} from "vue";
 import {useMotion} from "@vueuse/motion";
 import Flicking from "@egjs/vue3-flicking";
 import {AutoPlay, Perspective} from "@egjs/flicking-plugins";
@@ -42,19 +42,8 @@ interface Icon {
   tooltip: string;
 }
 
-interface Gradient {
-  left: string;
-  right: string;
-}
-
-interface TitleIcon {
-  name: string;
-  gradient: Gradient
-}
-
 interface CardData {
   title: string;
-  titleIcon: TitleIcon;
   content: string;
   icons: Icon[]
 }
@@ -62,13 +51,6 @@ interface CardData {
 const cards: CardData[] = [
   {
     title: 'Backend',
-    titleIcon: {
-      name:'si-githubactions',
-      gradient: {
-        left: 'gradient-green-dark',
-        right: 'gradient-green-light'
-      }
-    },
     content: 'Design and implement robust server-side logic. Ensuring databases and APIs are efficient, scalable and secure forming the backbone for reliable applications.',
     icons: [
       {
@@ -91,13 +73,6 @@ const cards: CardData[] = [
   },
   {
     title: 'Frontend',
-    titleIcon: {
-      name:'hi-desktop-computer',
-      gradient: {
-        left: 'gradient-blue-dark',
-        right: 'gradient-blue-light'
-      }
-    },
     content: 'Create engaging, responsive interfaces by optimizing user experience and performance, ensuring seamless and visually appealing applications.',
     icons: [
       {
@@ -124,13 +99,6 @@ const cards: CardData[] = [
   },
   {
     title: 'DevOps',
-    titleIcon: {
-      name:'ri-cloud-windy-line',
-      gradient: {
-        left: 'gradient-green-dark',
-        right: 'gradient-green-light'
-      }
-    },
     content: 'Streamlining deployment with CI/CD practices and containerization. Utilizing DevOps practices to ensure efficient operations, infrastructure maintenance and seamless development and deployment workflows.',
     icons: [
       {
@@ -153,13 +121,6 @@ const cards: CardData[] = [
   },
   {
     title: 'Testing & Quality Assurance',
-    titleIcon: {
-      name:'md-libraryaddcheck',
-      gradient: {
-        left: 'gradient-green-dark',
-        right: 'gradient-green-light'
-      }
-    },
     content: 'Ensuring software reliability through comprehensive testing strategies. This includes implementing unit, component and end-to-end tests to maintain high standards of quality and stability.',
     icons: [
       {
@@ -179,7 +140,7 @@ const cards: CardData[] = [
 ];
 
 const cardsRef = ref();
-const flicking = ref();
+const flicking = ref<ComponentPublicInstance<Flicking>>();
 
 useMotionCustom(headingRef, 0);
 
@@ -219,7 +180,7 @@ const plugins = ref<any[]>([
 ]);
 
 function goToCard(index: number) {
-  flicking.value.moveTo(index);
+  flicking.value?.moveTo(index);
 }
 
 </script>
