@@ -2,10 +2,11 @@ export function isInViewport(element?: Element) {
     if(! element){
         return false;
     }
-    const rect = element.firstElementChild?.getBoundingClientRect() ?? element.getBoundingClientRect();
+    const top = element.firstElementChild?.getBoundingClientRect().top ?? element.getBoundingClientRect().top;
+    const bottom = element.lastElementChild?.getBoundingClientRect().bottom ?? element.getBoundingClientRect().bottom;
     const html = document.documentElement;
     return (
-        rect.top >= 0 &&
-        rect.bottom <= (window.innerHeight || html.clientHeight)
+        top >= 0 &&
+        bottom <= (window.innerHeight || html.clientHeight)
     );
 }

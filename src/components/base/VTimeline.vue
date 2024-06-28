@@ -55,12 +55,11 @@ const show = ref(false);
 const setShow = (value: boolean) => (show.value = value);
 
 const cardRef = ref();
-const { y } = useWindowScroll();
+const {y} = useWindowScroll();
 
 onMounted(() => {
   watch(y, () => setShow(isInViewport(cardRef.value)));
 })
-
 
 
 const currentIndex = ref<number>(0);
@@ -76,18 +75,18 @@ interface Entry {
 
 const entries: Entry[] = [
   {
-    date: 'Sep 2021',
-    title: 'Teaching Assistant, Vrije Universiteit Amsterdam',
-    content: 'Work with smaller groups of Computer Science and AI students to reinforce the learning process for various courses they take along the year with the main focus on developing knowledge and coding skills.',
-    icon: vuSvg,
-    iconStyles: 'max-h-20'
+    date: 'Aug 2023',
+    title: 'Software Engineer, DongIT',
+    content: '',
+    icon: dongItSvg,
+    iconStyles: 'max-h-16 mb-1'
   },
   {
-    date: 'Feb 2022',
-    title: 'Full Stack Developer, DBV Software Solutions',
+    date: 'Nov 2022',
+    title: 'Full Stack Developer, Capisoft B.V.',
     content: '',
-    icon: myLogo,
-    iconStyles: 'max-h-16 pb-4'
+    icon: capisoftLogo,
+    iconStyles: 'max-h-10 mb-4',
   },
   {
     date: 'Nov 2022',
@@ -98,19 +97,19 @@ const entries: Entry[] = [
 
   },
   {
-    date: 'Nov 2022',
-    title: 'Full Stack Developer, Capisoft B.V.',
+    date: 'Feb 2022',
+    title: 'Full Stack Developer, DBV Software Solutions',
     content: '',
-    icon: capisoftLogo,
-    iconStyles: 'max-h-10 mb-4',
+    icon: myLogo,
+    iconStyles: 'max-h-16 pb-4'
   },
   {
-    date: 'Aug 2023',
-    title: 'Software Engineer, DongIT',
-    content: '',
-    icon: dongItSvg,
-    iconStyles: 'max-h-16 mb-1'
-  }
+    date: 'Sep 2021',
+    title: 'Teaching Assistant, Vrije Universiteit Amsterdam',
+    content: 'Work with smaller groups of Computer Science and AI students to reinforce the learning process for various courses they take along the year with the main focus on developing knowledge and coding skills.',
+    icon: vuSvg,
+    iconStyles: 'max-h-20'
+  },
 ];
 
 
