@@ -23,7 +23,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import Stack from '@assets/stack-expanded.svg'
+import Stack from '@assets/stack-expanded.png'
 import {ref} from "vue";
 import {useMotion} from "@vueuse/motion";
 

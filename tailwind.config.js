@@ -18,6 +18,11 @@ export default {
             'light-blue': '#66FCF1',
             'white': '#FFFFFF',
             'green': '#45A29E',
+            'gradient-green-dark': '#009245',
+            'gradient-green-light': '#FCEE21',
+            'gradiet-blue-dark': '#2E3192',
+            'gradient-blue-light': '#1BFFFF',
+
         },
         fontFamily: {
             varela: ['Varela'],
