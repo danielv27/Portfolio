@@ -9,5 +9,5 @@
   </div>
 </template>
 <script setup>
-import ExperienceGraph from "@components/ExperienceSection/ExperienceGraph.vue";
+import ExperienceGraph from "@components/experience/ExperienceTimeLine.vue";
 </script>

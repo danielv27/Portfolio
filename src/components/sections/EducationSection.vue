@@ -5,7 +5,7 @@
       <div class="education-cards grid grid-cols-1 md:grid-cols-2 gap-6">
         <div v-for="(education, index) in educations" :key="index"
              class="education-card bg-dark-blue rounded-lg shadow-md p-6">
-          <div class="flex justify-between items-center">
+          <div class="flex flex-col gap-4 lg:flex-row justify-between items-center">
             <div>
               <h3 class="text-xl font-semibold mb-2">{{ education.degree }}</h3>
               <p class="text-gray-700">{{ education.institution }}</p>
@@ -29,7 +29,7 @@ const educations = [
     institution: 'Universiteit van Amsterdam',
     period: 'Sep 2023 — Aug 2024',
     logo: uvaLogo,
-    logoStyle: 'max-w-24 max-h-24'
+    logoStyle: 'max-w-20 max-h-20 mt-2'
   },
   {
     degree: 'BSc Computer Science',

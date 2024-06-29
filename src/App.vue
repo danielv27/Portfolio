@@ -6,10 +6,10 @@
   </div>
 </template>
 <script setup lang="ts">
-import NavBar from "@components/NavBar.vue";
+import NavBar from "@components/nav/NavBar.vue";
 import MainPage from "@components/MainPage.vue";
 import {onMounted} from "vue";
-import SocialButtons from "@components/SocialButtons.vue";
+import SocialButtons from "@components/nav/SocialButtons.vue";
 
 function addSmoothScrolling() {
   const links = document.querySelectorAll('a[href^="#"]');
@@ -25,7 +25,7 @@ function addSmoothScrolling() {
       if (targetElement) {
         console.log(targetElement);
         window.scrollTo({
-          top: targetElement.parentElement!.offsetTop - 144,
+          top: targetElement.offsetTop - 140,
           behavior: 'smooth'
         });
       }

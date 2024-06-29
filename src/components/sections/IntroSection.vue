@@ -35,13 +35,13 @@
   </div>
 </template>
 <script setup>
-import AnimatedText from "@components/base/AnimatedText.vue";
+import AnimatedText from "@components/animation/AnimatedText.vue";
 import {computed, ref} from "vue";
 import {useMotion} from "@vueuse/motion";
 import profilePicture from "@assets/my-photo-grey-bg.jpeg"
-import ExpertiseCards from "@components/ExpertiseCards.vue";
+import ExpertiseCards from "@components/expertise/ExpertiseCards.vue";
 import squiggleSVG from "@assets/squigglesAndDots.svg"
-import RotateOnHover from "@components/base/RotateOnHover.vue";
+import RotateOnHover from "@components/animation/RotateOnHover.vue";
 
 
 const descriptionRef = ref();

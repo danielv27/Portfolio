@@ -1,37 +1,37 @@
 <template>
   <div class="flex flex-col items-center mx-20 mt-8">
     <h1 ref="headingRef" class="text-4xl mb-6">Expertise</h1>
-    <Flicking ref="flicking" class="w-[66vw]" :options="{defaultIndex: 1, circular: true, panelsPerView: 3}" :plugins="plugins">
-      <VCard v-for="(card, index) in cards" :key="card.title" ref="cardsRef" @click="goToCard(index)">
-        <template v-slot:title>
-          <div class="flex gap-2 items-center">
-            {{ card.title }}
-          </div>
-        </template>
-        <template v-slot:content>
-          {{ card.content }}
-        </template>
-        <template v-slot:footer>
-          <div class="flex gap-1.5 text-light-blue">
-            <div v-for="icon in card.icons" :key="icon.name" v-tippy="icon.tooltip">
-              <VIcon :name="icon.name" :scale="1.5"/>
-            </div>
-          </div>
-        </template>
-      </VCard>
+    <ExpertiseCard
+        v-if="mobile"
+        v-for="card in cards"
+        :key="card.title"
+        class="mb-8"
+        v-bind="card" />
+    <Flicking v-else ref="flicking" class="w-[66vw]" :options="{defaultIndex: 1, circular: true, panelsPerView}" :plugins="plugins">
+      <ExpertiseCard ref="cardsRef" v-for="(card, index) in cards" :key="card.title" v-bind="card" @click="goToCard(index)" />
     </Flicking>
   </div>
 </template>
 <script setup lang="ts">
-import VCard from "@components/base/VCard.vue";
-import {type ComponentPublicInstance, onMounted, ref} from "vue";
+import {type ComponentPublicInstance, computed, onMounted, ref} from "vue";
 import {useMotion} from "@vueuse/motion";
 import Flicking from "@egjs/vue3-flicking";
 import {AutoPlay, Perspective} from "@egjs/flicking-plugins";
+import {useWindowSize} from "@vueuse/core";
+import ExpertiseCard from "@components/expertise/ExpertiseCard.vue";
 
 interface Props {
   delay: number;
 }
+
+const {width} = useWindowSize();
+const mobile = computed(() => width.value <= 500);
+
+const panelsPerView = computed(() => {
+  if(width.value <= 500) return 1;
+  if(width.value <= 1000) return 2;
+  return 3;
+})
 
 const props = defineProps<Props>();
 

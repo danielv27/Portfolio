@@ -28,7 +28,7 @@
 import logo from '@assets/logo.png'
 import {ref, watch} from "vue";
 import {useWindowScroll} from "@vueuse/core";
-import {isInViewport} from "@utils/viewPort";
+import {isInViewport} from "@utils/viewPort.js";
 
 const { y } = useWindowScroll();
 
@@ -41,7 +41,7 @@ function elementInViewPort(label: string){
 }
 
 
-const navLabels = ['About', 'Experience', 'Education', 'Contact'];
+const navLabels = ['About', 'Experience', 'Education', 'Projects', 'Contact'];
 
 const navItems = ref(navLabels.map(label => ({
   label,

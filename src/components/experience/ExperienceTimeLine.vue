@@ -49,7 +49,7 @@ import zorgpleinLogo from '@assets/zorgplein-white.png'
 import capisoftLogo from '@assets/capiscoft-white.png'
 import { computed, onMounted, ref, watch } from 'vue';
 import { useWindowScroll } from "@vueuse/core";
-import { isInViewport } from "@utils/viewPort.ts";
+import { isInViewport } from "@utils/viewPort.js";
 
 const show = ref(false);
 const setShow = (value: boolean) => (show.value = value);
