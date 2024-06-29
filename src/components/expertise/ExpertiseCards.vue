@@ -8,7 +8,7 @@
         :key="card.title + 'mobile'"
         class="mb-8"
         v-bind="card" />
-    <Flicking v-else ref="flicking" class="w-[66vw]" :options="{defaultIndex: 1, circular: true, panelsPerView}" :plugins="plugins">
+    <Flicking v-else ref="flicking" class="w-[66vw] hover:cursor-grab active:cursor-grabbing" :options="{defaultIndex: 1, circular: true, panelsPerView}" :plugins="plugins">
       <ExpertiseCard ref="cardsRef" v-for="(card, index) in cards" :key="card.title" v-bind="card" @click="goToCard(index)" />
     </Flicking>
   </div>
