@@ -1,11 +1,11 @@
 <template>
-  <div class="education-section my-auto pt-12 h-[65vh] px-32 bg-gradient-to-b from-light-blue to-dark-blue">
+  <div class="education-section my-auto pt-12 h-[65vh] px-4 md:px-32 bg-gradient-to-b from-light-blue to-dark-blue">
     <div id="education">
       <h2 class="text-3xl font-bold mb-6">Education</h2>
       <div class="education-cards grid grid-cols-1 md:grid-cols-2 gap-6">
         <div v-for="(education, index) in educations" :key="index"
              class="education-card bg-dark-blue rounded-lg shadow-md p-6">
-          <div class="flex flex-col gap-4 lg:flex-row justify-between items-center">
+          <div class="flex gap-8 justify-between items-center">
             <div>
               <h3 class="text-xl font-semibold mb-2">{{ education.degree }}</h3>
               <p class="text-gray-700">{{ education.institution }}</p>

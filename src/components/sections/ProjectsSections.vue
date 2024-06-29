@@ -1,5 +1,5 @@
 <template>
-  <div id="projects" class="projects-section pt-12">
+  <div id="projects" class="projects-section pt-12 px-5">
     <h2 class="text-3xl font-bold mb-6">Projects</h2>
     <div class="projects-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       <div v-for="(project, index) in projects" :key="index" class="project-card bg-lighter-dark-blue rounded-lg shadow-md p-6">
