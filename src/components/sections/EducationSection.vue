@@ -1,5 +1,5 @@
 <template>
-  <div class="education-section my-auto pt-12 h-[90vh] md:h-[65vh] px-4 md:px-32 bg-gradient-to-b from-light-blue to-dark-blue">
+  <div class="education-section my-auto pt-12 h-[75vh] md:h-[65vh] px-4 md:px-32 bg-gradient-to-b from-light-blue to-dark-blue">
     <div id="education">
       <h2 class="text-3xl font-bold mb-6">Education</h2>
       <div class="education-cards grid grid-cols-1 md:grid-cols-2 gap-6">

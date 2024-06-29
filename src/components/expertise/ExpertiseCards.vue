@@ -30,7 +30,6 @@ interface Props {
 
 const {width} = useWindowSize();
 const smallScreen = computed(() => width.value <= 1340);
-watch(width, () => console.log(width.value));
 
 const panelsPerView = computed(() => {
   if (width.value <= 500) return 1;

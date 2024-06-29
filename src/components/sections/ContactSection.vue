@@ -47,20 +47,7 @@ const formData = ref({
 });
 
 function submitForm() {
-  console.log('Form submitted:', formData.value);
-  // Here you can add your logic to send the form data to your server or process it further
-  // Example: Send form data via Axios to a backend API
-  /*
-  axios.post('/api/contact', formData.value)
-    .then(response => {
-      console.log('Response:', response.data);
-      // Handle success
-    })
-    .catch(error => {
-      console.error('Error:', error);
-      // Handle error
-    });
-  */
+  // TODO: handle leads
 }
 </script>
 

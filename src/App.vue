@@ -23,7 +23,6 @@ function addSmoothScrolling() {
 
 
       if (targetElement) {
-        console.log(targetElement);
         window.scrollTo({
           top: targetElement.offsetTop - 140,
           behavior: 'smooth'
