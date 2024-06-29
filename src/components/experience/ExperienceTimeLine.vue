@@ -1,5 +1,5 @@
 <template>
-  <div class="flex w-[95vw] md:w-1/2">
+  <div class="flex w-[95vw] md:w-1/2 relative">
     <ul class="w-1/12 min-w-28 timeline timeline-vertical text-white">
       <li
           v-for="(entry, index) in entries"
@@ -28,7 +28,7 @@
       </li>
     </ul>
     <Transition :duration="550" name="nested">
-      <div ref="cardRef" v-show="show" class="mt-5 px-6 pt-4 md:pt-14 w-auto h-full bg-dark-blue rounded-b-4xl rounded-r-4xl">
+      <div ref="cardRef" v-show="show" class="absolute mt-5 ml-20 px-6 pt-4 md:pt-14 w-auto h-full bg-dark-blue rounded-b-4xl rounded-r-4xl">
         <div class="inner h-full flex flex-col justify-between">
           <div>
             <h1 class="text-2xl mb-2 md:mb-6">{{ currentEntry.title }}</h1>
@@ -72,11 +72,17 @@ interface Entry {
   iconStyles?: string;
 }
 
+const listStyle = "list-disc ml-3.5"
 const entries: Entry[] = [
   {
     date: 'Aug 2023',
     title: 'Software Engineer, DongIT',
-    content: `Integrating modern frontend JavaScript frameworks enhances user experience and optimizes website performance, while DevOps responsibilities streamline deployment processes and maintain infrastructure for seamless operations. Comprehensive testing with frameworks like Vitest ensures application reliability and contributes to software quality and robustness.`,
+    content: `
+         <ul class="${listStyle}">
+            <li>Migrate projects to modern frontend JavaScript to enhance user experience and optimizes performance</li>
+            <li>Implement containerized backend services</li>
+            <li>Create CI/CD pipelines for seamless deployment and automated testing</li>
+        </ul>`,
     icon: dongItSvg,
     iconStyles: 'max-h-16 mb-1'
   },
@@ -84,11 +90,10 @@ const entries: Entry[] = [
     date: 'Nov 2022',
     title: 'Full Stack Developer, Capisoft B.V.',
     content: `
-      <ul>
-        <li>Adaptation between back-end and front-end.</li>
-        <li>Working with different development stacks (depending on customer needs).</li>
-        <li>Supervising, testing and securing existing code to ensure maintainability and extensibility.</li>
-        <li>Collaborating through development tools such as Github, Trello, and Jira.</li>
+      <ul class="${listStyle}">
+        <li>Oversee adaptation between back-end and front-end.</li>
+        <li>Supervise, testing and deployment to ensure maintainability and extensibility.</li>
+        <li>Incorporate Collaborative agile practices using tools like Trello, and Jira.</li>
       </ul>`,
     icon: capisoftLogo,
     iconStyles: 'max-h-10 mb-4',
@@ -97,7 +102,7 @@ const entries: Entry[] = [
     date: 'Nov 2022',
     title: 'Frontend Lead, Zorgplein.online',
     content: `
-      <ul>
+      <ul class="${listStyle}">
         <li>Overseeing all aspects of the front-end side of a cross-platform mobile application.</li>
         <li>Planning, delegation, deployment, and testing of various components, ensuring high standards.</li>
       </ul>`,
@@ -108,9 +113,9 @@ const entries: Entry[] = [
     date: 'Feb 2022',
     title: 'Full Stack Developer, DBV Software Solutions',
     content: `
-      <ul>
+      <ul class="${listStyle}">
         <li>Worked on several projects using frameworks such as React, React Native, Firebase, and Flutter.</li>
-        <li>Created full stack applications that run natively on all platforms (mobile, desktop, and web).</li>
+        <li>Created full stack applications that run natively on mobile, desktop, and web.</li>
       </ul>`,
     icon: myLogo,
     iconStyles: 'max-h-16 pb-4'
