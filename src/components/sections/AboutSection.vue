@@ -1,6 +1,6 @@
 <template>
   <div class="flex bg-gradient-to-b from-dark-blue to-green justify-center h-144">
-    <div id="about" class="flex w-2/3 px-4 text-left text-white mt-16 gap-12">
+    <div id="about" class="block md:flex w-full md:w-2/3 px-4 text-left text-white mt-16 gap-12">
       <div>
         <h1 ref="headingRef" class="w-full flex text-4xl mb-4">
           About Me
@@ -18,14 +18,15 @@
           practices such as containerization and CI/CD pipelines for both deployment and testing.
         </section>
       </div>
-      <img ref="stackImgRef" class="w-48 object-contain self-start" :src="Stack" alt="stack"/>
+      <img ref="stackImgRef" class="w-48 hidden md:block object-contain self-start" :src="Stack" alt="stack"/>
     </div>
   </div>
 </template>
 <script setup lang="ts">
 import Stack from '@assets/stack-expanded.png'
-import {ref} from "vue";
+import {onBeforeMount, onMounted, ref} from "vue";
 import {useMotion} from "@vueuse/motion";
+import {useWindowSize} from "@vueuse/core";
 
 const headingRef = ref();
 const contentRef = ref();
@@ -48,10 +49,17 @@ function useMotionCustom(element: any, delay: number) {
   })
 }
 
+const {width} = useWindowSize();
+if(width.value >= 1000){
+  useMotionCustom(headingRef, 300);
+  useMotionCustom(contentRef, 600);
+  useMotionCustom(stackImgRef, 1000);
+}
 
-useMotionCustom(headingRef, 300);
-useMotionCustom(contentRef, 600);
-useMotionCustom(stackImgRef, 1000);
+
+
+
+
 
 
 

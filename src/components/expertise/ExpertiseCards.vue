@@ -1,10 +1,11 @@
 <template>
-  <div class="flex flex-col items-center mx-20 mt-8">
+  <div class="flex flex-col items-center mt-8">
     <h1 ref="headingRef" class="text-4xl mb-6">Expertise</h1>
     <ExpertiseCard
         v-if="mobile"
+        ref="cardsRef"
         v-for="card in cards"
-        :key="card.title"
+        :key="card.title + 'mobile'"
         class="mb-8"
         v-bind="card" />
     <Flicking v-else ref="flicking" class="w-[66vw]" :options="{defaultIndex: 1, circular: true, panelsPerView}" :plugins="plugins">
@@ -145,9 +146,9 @@ const flicking = ref<ComponentPublicInstance<Flicking>>();
 useMotionCustom(headingRef, 0);
 
 onMounted(() => {
-  useMotionCustom(cardsRef.value[0], 300);
-  useMotionCustom(cardsRef.value[1], 600);
-  useMotionCustom(cardsRef.value[2], 900);
+  cardsRef.value.forEach(function (card: CardData, i: number) {
+    useMotionCustom(card, 300 + 300 * i);
+  });
 })
 
 function useMotionCustom(element: any, delay: number, opacity = 1) {

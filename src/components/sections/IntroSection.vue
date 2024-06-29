@@ -1,7 +1,7 @@
 <template>
-  <div id="intro" class="self-center my-10 lg:my-20 mx-8 lg:mx-32">
+  <div id="intro" class="self-center my-10 lg:my-20 ml-3 md:mx-8 lg:mx-32">
     <img class="absolute w-144 top-28 left-0 lg:top-40 lg:left-10" :src="squiggleSVG" alt="squiggle">
-    <div class="flex flex-col lg:flex-row gap-10 lg:gap-40 items-center w-full">
+    <div class="flex flex-col xl:flex-row gap-10 lg:gap-40 items-center w-full">
       <RotateOnHover class="z-10">
         <img
             ref="profileImgRef"
@@ -11,8 +11,9 @@
         />
       </RotateOnHover>
       <div class="text-left">
-        <div class="flex text-xl lg:text-4xl mb-2">
+        <div class="text-4xl mb-2">
           <AnimatedText
+              class="mb-2"
               text="Hi, I'm Daniel,"
               :delay="400"
               :time-between="180"
@@ -23,7 +24,7 @@
               :time-between="240"
           />
         </div>
-        <div ref="descriptionRef" class="text-gray text-lg">
+        <div ref="descriptionRef" class="text-gray text-lg lg:mr-20">
           Welcome to my portfolio! Here, you'll find examples of my work, skills,
           and experience creating <span class="text-light-blue">innovative software solutions</span>. I'm committed to
           staying up-to-date with the latest technologies and trends in the field, and I
