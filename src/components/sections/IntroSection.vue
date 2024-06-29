@@ -11,7 +11,7 @@
         />
       </RotateOnHover>
       <div class="text-left">
-        <div class="text-4xl mb-2">
+        <div class="text-3xl md:text-4xl mb-2">
           <AnimatedText
               class="mb-2"
               text="Hi, I'm Daniel,"
