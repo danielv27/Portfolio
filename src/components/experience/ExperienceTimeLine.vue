@@ -79,7 +79,7 @@ const entries: Entry[] = [
     title: 'Software Engineer, DongIT',
     content: `
          <ul class="${listStyle}">
-            <li>Migrate projects to modern frontend JavaScript to enhance user experience and optimizes performance</li>
+            <li>Migrate projects to modern frontend JavaScript frameworks to enhance user experience and optimizes performance</li>
             <li>Implement containerized backend services</li>
             <li>Create CI/CD pipelines for seamless deployment and automated testing</li>
         </ul>`,
@@ -114,8 +114,8 @@ const entries: Entry[] = [
     title: 'Full Stack Developer, DBV Software Solutions',
     content: `
       <ul class="${listStyle}">
-        <li>Worked on several projects using frameworks such as React, React Native, Firebase, and Flutter.</li>
         <li>Created full stack applications that run natively on mobile, desktop, and web.</li>
+        <li>Worked on several projects using frameworks such as React, React Native, Firebase, and Flutter.</li>
       </ul>`,
     icon: myLogo,
     iconStyles: 'max-h-16 pb-4'
