@@ -1,5 +1,5 @@
 <template>
-  <div class="flex w-full pb-16 bg-gradient-to-b from-green to-light-blue justify-center">
+  <div class="flex pt-12 md:pt-0 w-full pb-16 bg-gradient-to-b from-green to-light-blue justify-center">
     <div id="experience" class="flex w-full flex-col items-center px-4 text-left">
       <h1 class="w-full flex justify-center text-4xl">
         Experience
