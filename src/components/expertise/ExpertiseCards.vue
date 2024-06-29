@@ -1,13 +1,14 @@
 <template>
   <div class="flex flex-col items-center mt-8">
     <h1 ref="headingRef" class="text-4xl mb-6">Expertise</h1>
-    <ExpertiseCard
-        v-if="mobile"
-        ref="cardsRef"
-        v-for="card in cards"
-        :key="card.title + 'mobile'"
-        class="mb-8"
-        v-bind="card"/>
+    <div v-if="smallScreen" class="grid md:gap-14 md:grid-cols-2">
+      <ExpertiseCard
+          ref="cardsRef"
+          v-for="card in cards"
+          :key="card.title + 'mobile'"
+          class="mb-8 "
+          v-bind="card"/>
+    </div>
     <Flicking v-else ref="flicking" class="w-[66vw] hover:cursor-grab active:cursor-grabbing"
               :options="{defaultIndex: 1, circular: true, panelsPerView}" :plugins="plugins">
       <ExpertiseCard ref="cardsRef" v-for="(card, index) in cards" :key="card.title" v-bind="card"
@@ -16,7 +17,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import {type ComponentPublicInstance, computed, onMounted, type Ref, ref} from "vue";
+import {type ComponentPublicInstance, computed, onMounted, type Ref, ref, watch} from "vue";
 import {useMotion} from "@vueuse/motion";
 import Flicking from "@egjs/vue3-flicking";
 import {AutoPlay, Perspective} from "@egjs/flicking-plugins";
@@ -28,7 +29,8 @@ interface Props {
 }
 
 const {width} = useWindowSize();
-const mobile = computed(() => width.value <= 500);
+const smallScreen = computed(() => width.value <= 1200);
+watch(width, () => console.log(width.value));
 
 const panelsPerView = computed(() => {
   if (width.value <= 500) return 1;
@@ -125,7 +127,7 @@ const testingCard: CardData = {
   ]
 };
 
-const cards: Ref<CardData[]> = computed(() => mobile.value
+const cards: Ref<CardData[]> = computed(() => smallScreen.value
     ? [
       frontEndCard,
       backEndCard,
