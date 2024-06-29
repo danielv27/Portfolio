@@ -76,12 +76,7 @@ const entries: Entry[] = [
   {
     date: 'Aug 2023',
     title: 'Software Engineer, DongIT',
-    content: `
-      <ul>
-        <li>Integrating modern frontend JavaScript frameworks into large-scale projects to elevate user experience, optimize website performance, and ensure security protocols.</li>
-        <li>Taking on DevOps responsibilities, streamlining deployment processes and maintaining infrastructure to ensure seamless and efficient operations.</li>
-        <li>Implementing comprehensive component and unit testing using frameworks like Vitest to guarantee the reliability and stability of our applications, contributing to the overall quality and robustness of software solutions.</li>
-      </ul>`,
+    content: `Integrating modern frontend JavaScript frameworks enhances user experience and optimizes website performance, while DevOps responsibilities streamline deployment processes and maintain infrastructure for seamless operations. Comprehensive testing with frameworks like Vitest ensures application reliability and contributes to software quality and robustness.`,
     icon: dongItSvg,
     iconStyles: 'max-h-16 mb-1'
   },
