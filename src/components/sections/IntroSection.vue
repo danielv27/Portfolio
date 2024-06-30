@@ -2,7 +2,7 @@
   <div id="intro" class="self-center my-10 md:my-20 md:mx-8 xl:mx-32">
     <img class="absolute w-144 top-28 left-0 lg:top-40 lg:left-10" :src="squiggleSVG" alt="squiggle">
     <div class="flex flex-col xl:flex-row gap-10 lg:gap-40 items-center w-full">
-      <RotateOnHover class="z-10">
+      <RotateOnHover class="z-10 md:ml-3">
         <img
             ref="profileImgRef"
             :src="profilePicture"
