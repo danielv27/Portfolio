@@ -1,5 +1,5 @@
 <template>
-  <div class="sticky top-0 left-0 z-10 py-4 w-screen flex justify-between bg-dark-blue">
+  <div class="sticky top-0 left-0 z-30 bg-gradient-to-b  py-4 w-screen flex justify-between bg-dark-blue">
     <div class="flex ml-6">
       <a :href="logoHref">
         <img class="w-16 lg:w-20 mt-1.5 object-contain" :src="logo" alt="Logo"/>
