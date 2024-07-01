@@ -86,7 +86,7 @@ const projects: Project[] = [
         'Firstly, I defined an Open-API specification to describe the endpoints and models of the API. ' +
         'Following this, I implemented the backend logic using Django. third, I added container orchestration (Docker Compose) that sets up ' +
         'the server and database automatically.' +
-        'Lastly, I implemented CI/CD pipelines using Github Actions. Whenever new code was pushed, the pipeline would ' +
+        'Lastly, I implemented CI/CD pipelines using Github Workflows. Whenever new code was pushed, the pipeline would ' +
         'build, test and deploy the Docker image to Docker Hub.',
     image: swaggerLogo,
     imageClass: 'bg-dark-blue p-1',
