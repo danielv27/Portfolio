@@ -16,7 +16,7 @@
         </div>
         <div class="mb-4">
           <label for="subject" class="block text-sm font-medium">Subject</label>
-          <input type="text" id="subject" v-model="form.subject" placeholder="Enter subject"
+          <input type="text" id="subject" v-model="form.title" placeholder="Enter subject"
                  required class="mt-1 text-dark-blue dark:text-white block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-green sm:text-sm">
         </div>
 
@@ -38,14 +38,14 @@
 <script setup>
 import {ref} from 'vue';
 import VSpinner from "@components/base/VSpinner.vue";
-import {useToast} from "vue-toast-notification";
+import {toast} from "vue3-toastify";
 
-const toast = useToast({position: 'bottom-right'});
 
 const form = ref({
+  subject: 'Portfolio Contact Form',
   name: '',
   email: '',
-  subject: '',
+  title: '',
   message: ''
 });
 
@@ -57,6 +57,9 @@ async function submitForm() {
 
   const formData = new FormData();
   formData.append('access_key', "dfb2a6be-e8a2-433c-8ebe-87d69628cd8e");
+
+  form.value.subject = 'Portfolio contact form'
+
   Object.keys(form.value).forEach(key => formData.append(key, form.value[key]));
 
   try {
@@ -68,15 +71,14 @@ async function submitForm() {
     const data = await response.json();
 
     if (data.success) {
-      // Reset form and state
       form.value.name = '';
       form.value.email = '';
-      form.value.subject = '';
+      form.value.title = '';
       form.value.message = '';
-      toast.success('Message sent successfully!');
+      toast.success('Message sent successfully!', {position: 'bottom-center'});
       disabled.value = true;
     } else {
-      toast.error('Something went wrong! Please try again later.');
+      toast.error('Something went wrong! Please try again later.', {position: 'bottom-center'});
     }
   } catch (error) {
   } finally {

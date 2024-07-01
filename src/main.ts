@@ -4,8 +4,7 @@ import VNetworkGraph from "v-network-graph"
 import './style.css'
 import App from './App.vue'
 import {OhVueIcon, addIcons} from "oh-vue-icons";
-import ToastPlugin from 'vue-toast-notification';
-import 'vue-toast-notification/dist/theme-bootstrap.css';
+import 'vue3-toastify/dist/index.css';
 import VueTippy from 'vue-tippy'
 import 'tippy.js/dist/tippy.css'; // optional for styling
 
@@ -52,7 +51,6 @@ addIcons(
 );
 
 app.component('VIcon', OhVueIcon);
-app.use(ToastPlugin);
 app.use(VueTippy);
 app.use(MotionPlugin);
 app.use(VNetworkGraph)
