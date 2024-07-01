@@ -81,11 +81,13 @@ const projects: Project[] = [
     link: 'https://github.com/danielv27/gpx-manager'
   },
   {
-    title: 'Basic Micro Service',
-    description: 'The "Basic Micro Service" project implements a microservice architecture with the Student Service API. ' +
-        'Using SwaggerHub, I defined API endpoints and models, and generated a stub project. Implemented in Django, the API ' +
-        'supports CRUD operations for user management with a Dockerized setup. Automated CI/CD via GitHub Actions pushes ' +
-        'built Docker images to Docker Hub for easy deployment and management.',
+    title: 'DevOps Micro Service',
+    description: 'As part of a university project I implemented a microservice architecture server. ' +
+        'Firstly, I defined an Open-API specification to describe the endpoints and models of the API. ' +
+        'Following this, I implemented the backend logic using Django. third, I added container orchestration (Docker Compose) that sets up ' +
+        'the server and database automatically.' +
+        'Lastly, I implemented CI/CD pipelines using Github Actions. Whenever new code was pushed, the pipeline would ' +
+        'build, test and deploy the Docker image to Docker Hub.',
     image: swaggerLogo,
     imageClass: 'bg-dark-blue p-1',
     link: 'https://github.com/danielv27/dev-ops-microservice'
